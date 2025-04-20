@@ -1,0 +1,28 @@
+/* les couleurs **/
+/* bleu foncÃ©: #22397c */
+
+body {
+    color: black;
+    background: white;
+    font-family: Comic Sans MS, Brush Script MT, Calibri, cursive, serif;
+    font-size: 12pt;
+}
+
+#titre h1{
+    text-align: center;
+    font-size: 16pt;
+}
+
+h1,h2,h3 {
+    color: #22397c; /* bleu fonce */
+    font-size: 12pt
+}
+
+#menu {
+    display: none;
+}
+
+#footer p{
+    text-align: center;
+}
+

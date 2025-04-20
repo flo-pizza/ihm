@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Labo de Flo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>Bienvenue sur le site des interfaces homme-machine</h1>
+  <p>Découvrez la bibliothèque vivante des interfaces homme-machine et plus encore</p>
+
+  <label class="switch">
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span>
+  </label>
+
+</header>
+
+<main>
+  <div class="bloc">
+    <h2>Ressources</h2>
+    <p>Rechercher une ressource</p>
+    <a href="js/demonstration.html">Explorer</a>
+  </div>
+
+  <div class="bloc">
+    <h2>Concepts</h2>
+    <p>Explorer les concepts</p>
+    <a href="java/index.html">Voir</a>
+  </div>
+
+  <div class="bloc">
+    <h2>Assets & modèles</h2>
+    <p>voir les assets & modèles disponibles</p>
+    <a href="python/index.html">Lancer</a>
+  </div>
+
+  <div class="bloc">
+    <h2>Aide</h2>
+    <p>Obtenez de l'aide pour explorer le site</p>
+    <a href="ressources/index.html">Lire</a>
+  </div>
+
+  <div class="bloc">
+    <h2>Exercices</h2>
+    <p>s'entrainer sur des exercices</p>
+    <a href="exercices/ihm.html">Accéder</a>
+  </div>
+
+  <div class="bloc">
+    <h2>Cours</h2>
+    <p>Notions de cours sur l'ihm</p>
+    <a href="cours/index.html">Apprendre</a>
+  </div>
+
+  <div class="bloc">
+    <h2>Design system</h2>
+    <p>démonstration et palette de couleur utilisable</p>
+    <a href="design-system.html">Demo</a>
+  </div>
+
+</main>
+
+<script>
+  // Appliquer la police choisie (si elle existe en localStorage)
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedFont = localStorage.getItem("fontFamily");
+    if (savedFont) {
+      document.body.style.fontFamily = `'${savedFont}', sans-serif`;
+    }
+  });
+
+</script>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

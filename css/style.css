@@ -1,0 +1,168 @@
+:root {
+    --fond: #f8f8f8;
+    --texte: #222;
+    --bloc: white;
+    --lien: #000;
+
+    /* Nouvelles couleurs */
+    --accent: #00bcd4;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --danger: #f44336;
+    --info: #2196f3;
+}
+
+body.dark {
+    --fond: #121212;
+    --texte: #ffffff;
+    --bloc: #1e1e1e;
+    --lien: #4dd0e1;
+
+    --accent: #00bcd4;
+    --success: #66bb6a;
+    --warning: #ffa726;
+    --danger: #ef5350;
+    --info: #42a5f5;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--fond);
+    color: var(--texte);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+body.dark {
+    --fond: #121212;
+    --texte: #e0e0e0;
+    --bloc: #1e1e1e;
+    --lien: #00bcd4;
+}
+
+header {
+    background-color: #000; /* Fond noir */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.bloc {
+    background-color: var(--bloc);
+    color: var(--texte);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+
+    /* ✨ Douceur */
+    transition: background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+
+}
+
+/* Mode clair */
+.bloc:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Mode sombre */
+body.dark .bloc:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+
+
+h2 {
+    font-size: 1.2em;
+    color: var(--texte);
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 0.9em;
+
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--lien);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* le bouton switch jour nuit */
+
+/* Style du bouton switch */
+.switch {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3.5px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #00bcd4;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+

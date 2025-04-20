@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Design System – Labo de Flo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .color {
+            flex: 1 1 120px;
+            min-width: 120px;
+            border-radius: 8px;
+            padding: 12px 8px;
+            color: #fff;
+            font-size: 0.85em;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+
+        .demo-section {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 1em;
+        }
+
+        .demo-section h2 {
+            margin-bottom: 0.5em;
+        }
+
+        .demo-text {
+            background-color: var(--bloc);
+            padding: 1em;
+            border-radius: 6px;
+        }
+
+        .demo-links a {
+            margin-right: 10px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+ /*       h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }*/
+
+        code, pre {
+            font-family: 'Fira Code', monospace;
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
+
+        .font-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .font-preview {
+            background-color: var(--bloc);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.3s ease;
+        }
+
+        .font-preview h3 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .font-preview p {
+            font-size: 0.9em;
+            margin: 0.4em 0;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85em;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .home-button:hover {
+            background-color: #0097a7; /* variante plus foncée */
+            transform: scale(1.05);
+        }
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index2.html" class="home-button">🏠 Accueil</a>
+    <h1>Design System – Labo de Flo</h1>
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+    </label>
+</header>
+
+<main>
+    <div class="demo-section">
+        <h2>Palette de couleurs</h2>
+        <div class="palette">
+            <div class="color" style="background-color: var(--fond); color: var(--texte);">Fond</div>
+            <div class="color" style="background-color: var(--bloc); color: var(--texte);">Bloc</div>
+            <div class="color" style="background-color: var(--texte);">Texte</div>
+            <div class="color" style="background-color: var(--lien);">Lien</div>
+            <div class="color" style="background-color: var(--accent);">Accent</div>
+            <div class="color" style="background-color: var(--success);">Succès</div>
+            <div class="color" style="background-color: var(--warning);">Avertissement</div>
+            <div class="color" style="background-color: var(--danger);">Danger</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Bloc de démonstration</h2>
+        <div class="bloc">
+            <h3>Titre de bloc</h3>
+            <p>Voici un exemple de texte dans un bloc avec les couleurs de la charte.</p>
+            <a href="#">Lien principal</a>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Texte et contrastes</h2>
+        <div class="demo-text">
+            <p>Texte normal : <strong>var(--texte)</strong></p>
+            <p style="color: var(--success)">Succès</p>
+            <p style="color: var(--warning)">Avertissement</p>
+            <p style="color: var(--danger)">Erreur</p>
+            <p style="color: var(--accent)">Accent</p>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Choisir la police du site</h2>
+        <label for="fontSelect">Police :</label>
+        <select id="fontSelect">
+            <option value="Inter" style="font-family: 'Inter', sans-serif;">Inter</option>
+            <option value="Poppins" style="font-family: 'Poppins', sans-serif;">Poppins</option>
+            <option value="Roboto" style="font-family: 'Roboto', sans-serif;">Roboto</option>
+            <option value="Open Sans" style="font-family: 'Open Sans', sans-serif;">Open Sans</option>
+            <option value="Fira Code" style="font-family: 'Fira Code', monospace;">Fira Code</option>
+            <option value="Georgia" style="font-family: 'Georgia', serif;">Georgia</option>
+            <option value="Arial" style="font-family: 'Arial', sans-serif;">Arial</option>
+            <option value="Times New Roman" style="font-family: 'Times New Roman', serif;">Times New Roman</option>
+        </select>
+        <script>
+            const fontSelect = document.getElementById("fontSelect");
+
+            // Appliquer la police sauvegardée au chargement
+            const savedFont = localStorage.getItem("fontFamily");
+            if (savedFont) {
+                document.body.style.fontFamily = `'${savedFont}', sans-serif`;
+                fontSelect.value = savedFont;
+            }
+
+            fontSelect.addEventListener("change", () => {
+                const font = fontSelect.value;
+                document.body.style.fontFamily = `'${font}', sans-serif`;
+                localStorage.setItem("fontFamily", font);
+            });
+        </script>
+    </div>
+
+    <div class="demo-section">
+        <h2>Aperçu des polices</h2>
+        <div class="font-preview-grid">
+            <div class="font-preview" style="font-family: 'Inter', sans-serif;">
+                <h3>Inter</h3>
+                <p>Titre en Inter</p>
+                <p>Le texte courant est clair et bien espacé.</p>
+            </div>
+
+            <div class="font-preview" style="font-family: 'Poppins', sans-serif;">
+                <h3>Poppins</h3>
+                <p>Titre en Poppins</p>
+                <p>Le texte est arrondi, moderne et lisible.</p>
+            </div>
+
+            <div class="font-preview" style="font-family: 'Roboto', sans-serif;">
+                <h3>Roboto</h3>
+                <p>Titre en Roboto</p>
+                <p>Texte moderne, équilibré pour l’écran.</p>
+            </div>
+
+            <div class="font-preview" style="font-family: 'Open Sans', sans-serif;">
+                <h3>Open Sans</h3>
+                <p>Titre en Open Sans</p>
+                <p>Une police très populaire et bien lisible.</p>
+            </div>
+
+            <div class="font-preview" style="font-family: 'Fira Code', monospace;">
+                <h3>Fira Code</h3>
+                <p>Exemple de code : <code>const x = 42;</code></p>
+                <p>Idéal pour le développement.</p>
+            </div>
+
+            <div class="font-preview" style="font-family: 'Georgia', serif;">
+                <h3>Georgia</h3>
+                <p>Titre élégant en Georgia</p>
+                <p>Parfait pour des textes littéraires.</p>
+            </div>
+
+            <div class="font-preview" style="font-family: 'Arial', sans-serif;">
+                <h3>Arial</h3>
+                <p>Titre classique en Arial</p>
+                <p>Police simple et universellement supportée.</p>
+            </div>
+
+            <div class="font-preview" style="font-family: 'Times New Roman', serif;">
+                <h3>Times New Roman</h3>
+                <p>Titre classique</p>
+                <p>Style journalistique et formel.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+
+<script src="js/theme.js"></script>
+</body>
+</html>
