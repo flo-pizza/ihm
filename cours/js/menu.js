@@ -1,7 +1,7 @@
 function writeMenus() {
 
     topMenus = {
-        "Accueil" : "/~mountaz/Ens/Ihm/",
+        "Accueil" : "../Index2.html",
         //"Technotes": "/~mountaz/Ens/Ihm/Technotes/",
         "Videos": "/~mountaz/Ens/Ihm/Videos/",
         "Biblio": "/~mountaz/Ens/Ihm/Papers/",

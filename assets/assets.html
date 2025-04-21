@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Assets & Modèles – Labo de Flo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&family=Open+Sans&family=Roboto&family=Georgia&family=Arial&family=Times+New+Roman&display=swap" rel="stylesheet">
+    <style>
+        .section {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 1em;
+        }
+
+        .bloc-asset {
+            background-color: var(--bloc);
+            padding: 1em;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .home-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85em;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .home-button:hover {
+            background-color: #0097a7;
+            transform: scale(1.05);
+        }
+
+        .switch {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="../index2.html" class="home-button">🏠 Accueil</a>
+    <h1>Assets & Modèles</h1>
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+    </label>
+</header>
+
+<main>
+    <main>
+        <div class="section">
+
+
+            <h2>🟦 Boutons </h2>
+            <div class="bloc-asset">
+                <button class="accent">Clique-moi</button>
+                <pre><code>&lt;button class="accent"&gt;Clique-moi&lt;/button&gt;</code></pre>
+                <button class="copy-btn" data-code='&lt;button class="accent"&gt;Clique-moi&lt;/button&gt;'>📋 Copier le code</button>
+            </div>
+
+
+            <h2>🏷️ Étiquettes / Tags</h2>
+            <div class="bloc-asset">
+                <span class="tag success">Succès</span>
+                <span class="tag warning">Avertissement</span>
+                <span class="tag danger">Erreur</span>
+                <pre><code>&lt;span class="tag success"&gt;Succès&lt;/span&gt;
+&lt;span class="tag warning"&gt;Avertissement&lt;/span&gt;
+&lt;span class="tag danger"&gt;Erreur&lt;/span&gt;</code></pre>
+                <button class="copy-btn" data-code='&lt;span class="tag success"&gt;Succès&lt;/span&gt;&#10;&lt;span class="tag warning"&gt;Avertissement&lt;/span&gt;&#10;&lt;span class="tag danger"&gt;Erreur&lt;/span&gt;'>📋 Copier le code</button>
+            </div>
+
+
+            <h2>🗂️ Carte / Bloc</h2>
+            <div class="bloc-asset">
+                <div class="bloc">
+                    <h3>Titre de la carte</h3>
+                    <p>Exemple de contenu à l’intérieur d’un bloc stylé.</p>
+                    <a href="#">En savoir plus</a>
+                </div>
+                <pre><code>&lt;div class="bloc"&gt;
+  &lt;h3&gt;Titre de la carte&lt;/h3&gt;
+  &lt;p&gt;Exemple de contenu à l’intérieur d’un bloc stylé.&lt;/p&gt;
+  &lt;a href="#"&gt;En savoir plus&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                <button class="copy-btn" data-code='&lt;div class="bloc"&gt;&#10;  &lt;h3&gt;Titre de la carte&lt;/h3&gt;&#10;  &lt;p&gt;Exemple de contenu à l’intérieur d’un bloc stylé.&lt;/p&gt;&#10;  &lt;a href="#"&gt;En savoir plus&lt;/a&gt;&#10;&lt;/div&gt;'>📋 Copier le code</button>
+            </div>
+
+
+            <h2>📝 Formulaire</h2>
+            <div class="bloc-asset">
+                <form>
+                    <label for="email">Email :</label><br>
+                    <input type="email" id="email" name="email" placeholder="exemple@mail.com"><br><br>
+                    <button type="submit" class="accent">Envoyer</button>
+                </form>
+                <pre><code>&lt;form&gt;
+  &lt;label for="email"&gt;Email :&lt;/label&gt;&lt;br&gt;
+  &lt;input type="email" id="email" name="email" placeholder="exemple@mail.com"&gt;&lt;br&gt;&lt;br&gt;
+  &lt;button type="submit" class="accent"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                <button class="copy-btn" data-code='&lt;form&gt;&#10;  &lt;label for="email"&gt;Email :&lt;/label&gt;&lt;br&gt;&#10;  &lt;input type="email" id="email" name="email" placeholder="exemple@mail.com"&gt;&lt;br&gt;&lt;br&gt;&#10;  &lt;button type="submit" class="accent"&gt;Envoyer&lt;/button&gt;&#10;&lt;/form&gt;'>📋 Copier le code</button>
+            </div>
+
+
+            <h2>🎨 Icônes SVG</h2>
+            <div class="bloc-asset">
+                <!-- Aperçu des icônes -->
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7v2c0 5.52 3.33 10.74 10 13 6.67-2.26 10-7.48 10-13V7l-10-5z"/>
+                    </svg>
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+
+                <pre><code>&lt;svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"&gt;
+  &lt;path d="M12 2L2 7v2c0 5.52 3.33 10.74 10 13 6.67-2.26 10-7.48 10-13V7l-10-5z"/&gt;
+&lt;/svg&gt;
+
+&lt;svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"&gt;
+  &lt;path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/&gt;
+&lt;/svg&gt;</code></pre>
+
+                <button class="copy-btn" data-code='&lt;svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"&gt;&#10;  &lt;path d="M12 2L2 7v2c0 5.52 3.33 10.74 10 13 6.67-2.26 10-7.48 10-13V7l-10-5z"/&gt;&#10;&lt;/svg&gt;&#10;&#10;&lt;svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"&gt;&#10;  &lt;path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/&gt;&#10;&lt;/svg&gt;'>📋 Copier le code</button>
+            </div>
+
+            <h2>🖼️ Carte avec image + texte</h2>
+            <div class="bloc-asset">
+                <div class="card-image">
+                    <img src="https://picsum.photos/300/180" alt="Image aléatoire">
+
+                    <div class="card-content">
+                        <h3>Titre de la carte</h3>
+                        <p>Un petit texte descriptif pour présenter un élément visuel, un projet ou un modèle.</p>
+                    </div>
+                </div>
+
+                <pre><code>&lt;div class="card-image"&gt;
+  &lt;img src="https://picsum.photos/300/180" alt="Image de carte"&gt;
+  &lt;div class="card-content"&gt;
+    &lt;h3&gt;Titre de la carte&lt;/h3&gt;
+    &lt;p&gt;Un petit texte descriptif pour présenter un élément visuel.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <button class="copy-btn" data-code='&lt;div class="card-image"&gt;&#10;  &lt;img src="https://via.placeholder.com/300x180" alt="Image de carte"&gt;&#10;  &lt;div class="card-content"&gt;&#10;    &lt;h3&gt;Titre de la carte&lt;/h3&gt;&#10;    &lt;p&gt;Un petit texte descriptif pour présenter un élément visuel.&lt;/p&gt;&#10;  &lt;/div&gt;&#10;&lt;/div&gt;'>📋 Copier le code</button>
+            </div>
+
+
+            <h2>📐 Grille responsive (3 colonnes)</h2>
+            <div class="bloc-asset" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                <div style="background: var(--highlight); padding: 1em; border-radius: 6px;">Bloc 1</div>
+                <div style="background: var(--highlight); padding: 1em; border-radius: 6px;">Bloc 2</div>
+                <div style="background: var(--highlight); padding: 1em; border-radius: 6px;">Bloc 3</div>
+            </div>
+            <pre><code>&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;"&gt;
+  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 1&lt;/div&gt;
+  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 2&lt;/div&gt;
+  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <button class="copy-btn" data-code='&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;"&gt;&#10;  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 1&lt;/div&gt;&#10;  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 2&lt;/div&gt;&#10;  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 3&lt;/div&gt;&#10;&lt;/div&gt;'>📋 Copier le code</button>
+
+        </div>
+    </main>
+
+<!-- Script pour appliquer la police et le thème -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Appliquer la police enregistrée
+        const savedFont = localStorage.getItem("fontFamily");
+        if (savedFont) {
+            document.documentElement.style.setProperty('--font-active', `'${savedFont}', sans-serif`);
+        }
+
+        // Appliquer le thème sombre si activé
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark");
+            const toggle = document.getElementById("themeToggle");
+            if (toggle) toggle.checked = true;
+        }
+    });
+</script>
+
+<!-- Gestion du thème (mode sombre) -->
+<script src="../js/theme.js"></script>
+<script>
+    document.querySelectorAll(".copy-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const code = button.getAttribute("data-code");
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = "✅ Copié !";
+                setTimeout(() => {
+                    button.textContent = "📋 Copier le code";
+                }, 2000);
+            });
+        });
+    });
+</script>
+</main>
+</body>
+</html>

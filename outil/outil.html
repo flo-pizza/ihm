@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Outil de Design – Labo de Flo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        header {
+            background-color: #000;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        header h1 {
+            flex: 1 1 auto;
+            font-size: 1.8em;
+            margin: 0;
+            text-align: center;
+        }
+
+        .home-button {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85em;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .home-button:hover {
+            background-color: #0097a7;
+            transform: scale(1.05);
+        }
+
+        .switch {
+            margin-left: auto;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 2em;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            padding: 0 20px;
+            margin: 30px 0 10px 0;
+            width: fit-content;
+        }
+
+
+        select {
+            max-width: 200px;
+            padding: 0.5em;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            font-family: inherit;
+            background-color: var(--bloc);
+            color: var(--texte);
+        }
+
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin-top: 2em;
+        }
+
+        .tool {
+            text-align: center;
+            background-color: var(--bloc);
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .tool:hover {
+            transform: translateY(-4px);
+        }
+
+        .tool img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="../index2.html" class="home-button">🏠 Accueil</a>
+    <h1>Outil de Design</h1>
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+    </label>
+</header>
+
+<main class="outil-design">
+    <div class="toolbar">
+        <label for="mode">Affichage :</label>
+        <select id="mode">
+            <option value="images">Imagettes seulement</option>
+            <option value="images-noms" selected>Imagettes + noms</option>
+        </select>
+    </div>
+
+    <div id="tool-list" class="tool-grid"></div>
+</main>
+
+
+<script src="../js/theme.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("tool-list");
+        const modeSelect = document.getElementById("mode");
+
+        const savedFont = localStorage.getItem("fontFamily");
+        if (savedFont) {
+            document.documentElement.style.setProperty('--font-active', `'${savedFont}', sans-serif`);
+        }
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark");
+            document.getElementById("themeToggle").checked = true;
+        }
+
+        let tools = [];
+
+        function renderTools(mode) {
+            container.innerHTML = "";
+            tools.forEach(tool => {
+                const div = document.createElement("div");
+                div.className = "tool";
+
+                const link = document.createElement("a");
+                link.href = tool.url;
+                link.target = "_blank";
+
+                const img = document.createElement("img");
+                img.src = `http://localhost:3000/images/${tool.img}`;
+                img.alt = tool.name;
+
+                link.appendChild(img);
+
+                if (mode === "images-noms") {
+                    const name = document.createElement("p");
+                    name.textContent = tool.name;
+                    link.appendChild(name);
+                }
+
+                div.appendChild(link);
+                container.appendChild(div);
+            });
+        }
+
+        fetch("http://localhost:3000/api/tools")
+            .then(res => res.json())
+            .then(data => {
+                tools = data;
+                renderTools(modeSelect.value);
+            })
+            .catch(err => console.error("Erreur JSON :", err));
+
+        modeSelect.addEventListener("change", () => {
+            renderTools(modeSelect.value);
+        });
+    });
+</script>
+
+</body>
+</html>

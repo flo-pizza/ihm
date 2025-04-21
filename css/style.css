@@ -3,14 +3,29 @@
     --texte: #222;
     --bloc: white;
     --lien: #000;
-
-    /* Nouvelles couleurs */
     --accent: #00bcd4;
     --success: #4caf50;
     --warning: #ff9800;
     --danger: #f44336;
     --info: #2196f3;
+    --highlight: #e0f7fa;
+    --surface: #f1f1f1;
 }
+
+body.dark {
+    --fond: #121212;
+    --texte: #e0e0e0;
+    --bloc: #1e1e1e;
+    --lien: #00bcd4;
+    --accent: #00bcd4;
+    --success: #66bb6a;
+    --warning: #ffa726;
+    --danger: #ef5350;
+    --info: #42a5f5;
+    --highlight: #263238;
+    --surface: #2a2a2a;
+}
+
 
 body.dark {
     --fond: #121212;
@@ -32,7 +47,8 @@ body {
     background-color: var(--fond);
     color: var(--texte);
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Inter', sans-serif;
+
+    font-family: var(--font-active, 'Inter', sans-serif), serif;
 }
 
 body.dark {
@@ -43,13 +59,15 @@ body.dark {
 }
 
 header {
-    background-color: #000; /* Fond noir */
+    background-color: #000;
     color: white;
     padding: 15px;
-    text-align: center;
+    text-align: center; /* ✅ Ajoute bien cette ligne */
     position: relative;
 }
 
+
+/*
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -58,6 +76,35 @@ main {
     max-width: 1000px;
     margin: auto;
 }
+*/
+
+
+main.page-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+main:not(.outil-design) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+main.outil-design {
+    display: block;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
 
 .bloc {
     background-color: var(--bloc);
@@ -166,3 +213,109 @@ input:checked + .slider:before {
     transform: translateX(24px);
 }
 
+pre {
+    background-color: var(--surface);
+    padding: 0.8em;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: 'Fira Code', monospace;
+    margin-top: 1em;
+}
+
+.copy-btn {
+    margin-top: 8px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.4em 0.8em;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+    background-color: #0097a7;
+}
+
+
+.card-image {
+    background-color: var(--bloc);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 350px;
+    font-family: var(--font-active, 'Inter', sans-serif);
+}
+
+.card-image img {
+    width: 100%;
+    display: block;
+}
+
+.card-content {
+    padding: 1em;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 2em;
+}
+
+.tool {
+    text-align: center;
+    background-color: var(--bloc);
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+.tool:hover {
+    transform: translateY(-4px);
+}
+.tool img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+select {
+    padding: 0.4em 0.6em;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.9em;
+    max-width: 200px;
+    background-color: var(--bloc);
+    color: var(--texte);
+}
+
+.home-button {
+    display: inline-block;
+    margin: 15px;
+    background-color: var(--accent);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-button:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+}
