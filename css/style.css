@@ -12,6 +12,9 @@
     --surface: #f1f1f1;
 }
 
+
+
+
 body.dark {
     --fond: #121212;
     --texte: #e0e0e0;
@@ -50,6 +53,8 @@ body {
 
     font-family: var(--font-active, 'Inter', sans-serif), serif;
 }
+
+
 
 body.dark {
     --fond: #121212;
@@ -302,8 +307,9 @@ select {
 }
 
 .home-button {
-    display: inline-block;
-    margin: 15px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
     background-color: var(--accent);
     color: white;
     padding: 8px 14px;
@@ -319,6 +325,7 @@ select {
     background-color: #0097a7;
     transform: scale(1.05);
 }
+
 
 .notice {
     background-color: var(--warning);
@@ -336,3 +343,102 @@ select {
 .notice.hidden {
     display: none;
 }
+
+
+/* ressources */
+
+.ressources-page {
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.ressources-filtres {
+    margin-bottom: 30px; /* augmente l’espace sous la barre */
+}
+
+
+.ressources-filtres input {
+    width: 100%;
+    padding: 0.8em 1em;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--bloc);
+    color: var(--texte);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+}
+
+.ressources-liste {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 par 3 */
+    gap: 20px;
+}
+
+.carte-ressource {
+    margin-bottom: 24px; /* espace entre les lignes */
+    padding: 20px;
+    background-color: var(--bloc);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carte-ressource:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carte-ressource h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.2em;
+}
+
+.carte-ressource p {
+    margin: 0.5em 0;
+    font-size: 0.9em;
+}
+
+.carte-ressource a {
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    font-size: 0.85em;
+}
+
+.filtres-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 2em;
+    padding-left: 0.5em;
+}
+
+.filtres-container label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+    color: var(--texte);
+}
+
+.filtres-container select {
+    margin-top: 0.3em;
+    padding: 0.4em 0.6em;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: var(--bloc);
+    color: var(--texte);
+    font-size: 0.9em;
+}
+
+.bloc,
+.carte-ressource,
+.ressources-page,
+.container {
+    font-family: var(--font-active, 'Inter', sans-serif);
+}
+

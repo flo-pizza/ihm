@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Aide – Labo de Flo</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+
+  <style>
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 1em;
+    }
+
+    .help-box {
+      background-color: var(--bloc);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .help-box:hover {
+      background-color: rgba(0, 188, 212, 0.05);
+    }
+
+    .help-box h2 {
+      margin-top: 0;
+      font-size: 1.3em;
+      color: var(--accent);
+    }
+
+    .help-box p {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../index2.html" class="home-button">🏠 Accueil</a>
+  <h1>Aide</h1>
+  <label class="switch">
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span>
+  </label>
+</header>
+
+<main>
+  <div class="section">
+    <div class="help-box">
+      <h2>A propos du site</h2>
+      <p>Découvrez la mission du site et son objectif : vous aider à explorer l'univers des interfaces homme-machine de manière intuitive.</p>
+      <a href="../aide/a-propos.html">En savoir plus</a>
+    </div>
+
+    <div class="help-box">
+      <h2>Tutoriel de navigation du site</h2>
+      <p>Apprenez à utiliser les fonctionnalités principales du site, naviguer entre les pages, et exploiter les ressources disponibles.</p>
+      <a href="../aide/tutoriel.html">Lire le tutoriel</a>
+    </div>
+
+    <div class="help-box">
+      <h2>FAQ / Questions les plus populaires</h2>
+      <p>Retrouvez ici les réponses aux questions fréquemment posées par les utilisateurs.</p>
+      <a href="../aide/faq.html">Consulter le FAQ</a>
+    </div>
+
+    <div class="help-box">
+      <h2>Crédits / Mentions légales</h2>
+      <p>Consultez les crédits des contenus, des images et les informations légales du projet.</p>
+      <a href="../aide/credits.html">Voir les crédits</a>
+    </div>
+  </div>
+</main>
+<script>
+  const savedFont = localStorage.getItem("fontFamily");
+  if (savedFont) {
+    document.documentElement.style.setProperty('--font-active', `'${savedFont}', sans-serif`);
+  }
+</script>
+
+<script src="../js/theme.js"></script>
+
+</body>
+</html>

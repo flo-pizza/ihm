@@ -3,8 +3,10 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
-  <title>Labo de Flo</title>
+  <title>Site de IHM</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
 </head>
 <body>
 <header>
@@ -23,13 +25,13 @@
   <div class="bloc">
     <h2>Ressources</h2>
     <p>Rechercher une ressource</p>
-    <a href="js/demonstration.html">Explorer</a>
+    <a href="ressources/ressources.html">Explorer</a>
   </div>
 
   <div class="bloc">
     <h2>Concepts</h2>
     <p>Explorer les concepts</p>
-    <a href="java/index.html">Voir</a>
+    <a href="concepts/concepts.html">Voir</a>
   </div>
 
   <div class="bloc">
@@ -41,7 +43,7 @@
   <div class="bloc">
     <h2>Aide</h2>
     <p>Obtenez de l'aide pour explorer le site</p>
-    <a href="ressources/index.html">Lire</a>
+    <a href="aide/index.html">Lire</a>
   </div>
 
   <div class="bloc">
@@ -81,6 +83,12 @@
     }
   });
 
+</script>
+<script>
+  const savedFont = localStorage.getItem("fontFamily");
+  if (savedFont) {
+    document.documentElement.style.setProperty('--font-active', `'${savedFont}', sans-serif`);
+  }
 </script>
 
 <script src="js/theme.js"></script>

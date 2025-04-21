@@ -1,0 +1,92 @@
+[
+  {
+    "emoji": "📝",
+    "title": "Article UI",
+    "subtitle": "Comprendre l'affordance dans les interfaces modernes",
+    "type": "article",
+    "theme": "ui",
+    "tags": ["ergonomie", "concepts", "ui"],
+    "viewUrl": "https://fr.wikipedia.org/wiki/Affordance",
+    "downloadUrl": "https://example.com/docs/affordance-ui.pdf"
+  },
+  {
+    "emoji": "🎥",
+    "title": "Vidéo UX",
+    "subtitle": "Les 5 erreurs d'UX design à éviter (2024)",
+    "type": "video",
+    "theme": "ux",
+    "tags": ["feedback", "ui"],
+    "viewUrl": "https://www.youtube.com/watch?v=Ovj4hFxko7c",
+    "downloadUrl": "https://example.com/videos/ux-erreurs.mp4"
+  },
+  {
+    "emoji": "📄",
+    "title": "Guide PDF",
+    "subtitle": "Guide PDF des composants UI réutilisables",
+    "type": "pdf",
+    "theme": "ui",
+    "tags": ["composants", "templates", "ui"],
+    "viewUrl": "https://example.com/guides/composants-ui",
+    "downloadUrl": "https://example.com/docs/composants-ui.pdf"
+  },
+  {
+    "emoji": "📘",
+    "title": "Article UX",
+    "subtitle": "Psychologie cognitive et design d'interfaces",
+    "type": "article",
+    "theme": "ux",
+    "tags": ["psychologie", "ux", "comportement"],
+    "viewUrl": "https://uxdesign.cc/psychologie-et-interfaces-123456789",
+    "downloadUrl": "https://example.com/docs/psychologie-cognitive-ux.pdf"
+  },
+  {
+    "emoji": "🧑‍🏫",
+    "title": "Vidéo Ergonomie",
+    "subtitle": "Principes fondamentaux de l’ergonomie numérique",
+    "type": "video",
+    "theme": "ergonomie",
+    "tags": ["ergonomie", "interface", "utilisabilité"],
+    "viewUrl": "https://www.youtube.com/watch?v=abcd1234",
+    "downloadUrl": "https://example.com/videos/ergonomie-bases.mp4"
+  },
+  {
+    "emoji": "📂",
+    "title": "Kit UI PDF",
+    "subtitle": "Téléchargez un kit de composants UI prêts à l'emploi",
+    "type": "pdf",
+    "theme": "ui",
+    "tags": ["kit", "ui", "templates"],
+    "viewUrl": "https://example.com/kit-ui",
+    "downloadUrl": "https://example.com/docs/kit-ui.pdf"
+  },
+  {
+    "emoji": "📊",
+    "title": "Article UI",
+    "subtitle": "Design de tableaux de bord ergonomiques",
+    "type": "article",
+    "theme": "ui",
+    "tags": ["dashboard", "ergonomie", "ui"],
+    "viewUrl": "https://uxdesign.cc/ui-dashboard-design-essentiel",
+    "downloadUrl": "https://example.com/docs/ui-dashboard-ergonomique.pdf"
+  },
+  {
+    "emoji": "🎬",
+    "title": "Vidéo UI/UX",
+    "subtitle": "UI vs UX : comprendre les différences",
+    "type": "video",
+    "theme": "ux",
+    "tags": ["ui", "ux", "différences"],
+    "viewUrl": "https://www.youtube.com/watch?v=xyz9876",
+    "downloadUrl": "https://example.com/videos/ui-vs-ux.mp4"
+  },
+  {
+    "emoji": "📝",
+    "title": "Guide Ergonomique",
+    "subtitle": "PDF : Bonnes pratiques pour les formulaires",
+    "type": "pdf",
+    "theme": "ergonomie",
+    "tags": ["formulaire", "ergonomie", "accessibilité"],
+    "viewUrl": "https://example.com/formulaires-guide",
+    "downloadUrl": "https://example.com/docs/formulaires-ergonomiques.pdf"
+  }
+]

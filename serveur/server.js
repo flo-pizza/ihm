@@ -26,6 +26,19 @@ app.get('/api/tools', (req, res) => {
     });
 });
 
+// 3. Permettre l'accès au fichier ressources.json via une route
+app.get('/api/ressources', (req, res) => {
+    fs.readFile(path.join(__dirname, 'api', 'ressources.json'), 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send("Erreur de lecture du fichier JSON.");
+            return;
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.send(data);
+    });
+});
+
+
 // 3. Lancer le serveur
 const PORT = 3000;
 app.listen(PORT, () => {

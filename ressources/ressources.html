@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ressources – Labo de Flo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+</head>
+<body>
+<header>
+    <a href="../index2.html" class="home-button">🏠 Accueil</a>
+    <h1>Ressources</h1>
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+    </label>
+</header>
+
+<div class="container-ressources">
+
+    <!-- Barre de recherche à gauche -->
+    <aside class="ressources-filtres">
+        <input type="text" placeholder="🔍 Rechercher une ressource">
+    </aside>
+
+    <!-- filtres -->
+    <div class="filtres-container">
+        <label>
+            Type :
+            <select id="filtre-type">
+                <option value="">Tous</option>
+                <option value="article">Article</option>
+                <option value="video">Vidéo</option>
+                <option value="pdf">PDF</option>
+            </select>
+        </label>
+
+        <label>
+            Thème :
+            <select id="filtre-theme">
+                <option value="">Tous</option>
+                <option value="ui">UI</option>
+                <option value="ux">UX</option>
+                <option value="ergonomie">Ergonomie</option>
+            </select>
+        </label>
+
+        <label>
+            Tags :
+            <select id="filtre-tags">
+                <option value="">Tous</option>
+                <option value="feedback">Feedback</option>
+                <option value="templates">Templates</option>
+                <option value="composants">Composants</option>
+            </select>
+        </label>
+    </div>
+
+
+    <!-- Liste des ressources -->
+    <div class="ressources-liste">
+        <!-- Les ressources seront injectées ici dynamiquement -->
+    </div>
+</div>
+
+<script>
+    const savedFont = localStorage.getItem("fontFamily");
+    if (savedFont) {
+        document.documentElement.style.setProperty('--font-active', `'${savedFont}', sans-serif`);
+    }
+</script>
+
+<script src="../js/theme.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const typeFilter = document.getElementById("filtre-type");
+        const themeFilter = document.getElementById("filtre-theme");
+        const tagFilter = document.getElementById("filtre-tags");
+        const searchInput = document.querySelector("input[type='text']");
+        const container = document.querySelector(".ressources-liste");
+
+        let allResources = [];
+
+        function renderResources(resources) {
+            container.innerHTML = "";
+            resources.forEach(res => {
+                const div = document.createElement("div");
+                div.className = "carte-ressource";
+                div.innerHTML = `
+            <h3>${res.emoji} <span class="titre-ressource">${res.title}</span></h3>
+            <p><strong>${res.subtitle}</strong></p>
+            <p>Type : ${res.type}</p>
+            <p>Tags : ${res.tags.map(tag => "#" + tag).join(" ")}</p>
+            <a href="${res.viewUrl}" target="_blank" class="btn">👁 Voir</a>
+            <a href="${res.downloadUrl}" download class="btn">⬇ Télécharger</a>
+        `;
+                container.appendChild(div);
+            });
+        }
+
+
+        function applyFilters() {
+            const type = typeFilter.value;
+            const theme = themeFilter.value;
+            const tag = tagFilter.value;
+            const search = searchInput.value.toLowerCase();
+
+            const filtered = allResources.filter(r => {
+                const matchesType = !type || r.type.toLowerCase() === type;
+                const matchesTheme = !theme || r.theme.toLowerCase() === theme;
+                const matchesTag = !tag || r.tags.includes(tag);
+                const matchesSearch = r.title.toLowerCase().includes(search) || r.subtitle.toLowerCase().includes(search);
+                return matchesType && matchesTheme && matchesTag && matchesSearch;
+            });
+
+            renderResources(filtered);
+        }
+
+        // Écouteurs sur tous les filtres
+        [typeFilter, themeFilter, tagFilter, searchInput].forEach(el => {
+            el.addEventListener("input", applyFilters);
+        });
+
+        // Chargement des ressources
+        fetch("http://localhost:3000/api/ressources")
+            .then(res => res.json())
+            .then(data => {
+                allResources = data;
+                renderResources(allResources);
+            })
+            .catch(err => console.error("Erreur de chargement des ressources :", err));
+    });
+</script>
+
+</body>
+</html>

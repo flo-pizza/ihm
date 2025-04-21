@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Concepts – Labo de Flo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+</head>
+<body>
+<header>
+    <a href="../index2.html" class="home-button">🏠 Accueil</a>
+    <h1>Concepts</h1>
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+    </label>
+</header>
+
+<main class="container">
+    <div class="bloc">
+        <h2>🕹️ Affordance</h2>
+        <p>Capacité d’un élément d’interface à suggérer sa propre utilisation.</p>
+        <a href="https://fr.wikipedia.org/wiki/Affordance" target="_blank">→ En savoir plus</a>
+    </div>
+
+    <div class="bloc">
+        <h2>📃 Feedback</h2>
+        <p>Réaction visible et immédiate de l’interface suite à une action utilisateur.</p>
+        <a href="https://fr.wikipedia.org/wiki/Interaction_homme-machine" target="_blank">→ En savoir plus</a>
+    </div>
+
+    <div class="bloc">
+        <h2>⛔️ Contraintes</h2>
+        <p>Restrictions imposées à l’utilisateur pour guider son comportement ou éviter les erreurs.</p>
+        <a href="https://uxdesign.cc/designing-with-constraints-b5bc9b7c7b2e" target="_blank">→ En savoir plus</a>
+    </div>
+
+    <div class="bloc">
+        <h2>🌍 Consistance</h2>
+        <p>Harmonisation de l’interface pour renforcer l’apprentissage et la mémorisation.</p>
+        <a href="https://www.nngroup.com/articles/consistency/" target="_blank">→ En savoir plus</a>
+    </div>
+    <div class="bloc">
+        <h2>🧭 Signifiance</h2>
+        <p>Clarté des éléments pour une compréhension rapide de leur rôle.</p>
+        <a href="https://uxdesign.cc/making-interfaces-more-intuitive-2a7d3b34b835" target="_blank">→ En savoir plus</a>
+    </div>
+    <div class="bloc">
+        <h2>🖱 Feedback visuel</h2>
+        <p>Indication visuelle pour informer que l’action a été prise en compte.</p>
+        <a href="https://www.smashingmagazine.com/2011/09/improving-user-interaction-with-feedback/" target="_blank">→ En savoir plus</a>
+    </div>
+    <div class="bloc">
+        <h2>🔄 Tolérance</h2>
+        <p>Capacité du système à gérer les erreurs et proposer des corrections.</p>
+        <a href="https://www.interaction-design.org/literature/topics/error-prevention" target="_blank">→ En savoir plus</a>
+    </div>
+    <div class="bloc">
+        <h2>🔍 Visibilité</h2>
+        <p>Accessibilité immédiate des fonctions les plus importantes.</p>
+        <a href="https://uxdesign.cc/design-principle-visibility-of-system-status-8a0de1b4c4aa" target="_blank">→ En savoir plus</a>
+    </div>
+    <div class="bloc">
+        <h2>🧠 Charge cognitive</h2>
+        <p>Effort mental requis pour interagir avec l’interface.</p>
+        <a href="https://www.nngroup.com/articles/cognitive-load/" target="_blank">→ En savoir plus</a>
+    </div>
+    <div class="bloc">
+        <h2>🔀 Flexibilité</h2>
+        <p>Possibilité d’adapter l’interface à différents profils d’utilisateurs.</p>
+        <a href="https://www.smashingmagazine.com/2017/07/designing-for-flexibility/" target="_blank">→ En savoir plus</a>
+    </div>
+    <div class="bloc">
+        <h2>🏷 Mapping</h2>
+        <p>Relation naturelle entre les commandes et les effets qu’elles produisent.</p>
+        <a href="https://www.interaction-design.org/literature/topics/mapping" target="_blank">→ En savoir plus</a>
+    </div>
+    <div class="bloc">
+        <h2>📐 Hiérarchie visuelle</h2>
+        <p>Organisation visuelle des éléments pour guider l’attention de l’utilisateur.</p>
+        <a href="https://uxdesign.cc/visual-hierarchy-in-ui-design-principles-best-practices-and-tools-72494d4cb57e" target="_blank">→ En savoir plus</a>
+    </div>
+</main>
+<script>
+    const savedFont = localStorage.getItem("fontFamily");
+    if (savedFont) {
+        document.documentElement.style.setProperty('--font-active', `'${savedFont}', sans-serif`);
+    }
+</script>
+
+<script src="../js/theme.js"></script>
+</body>
+</html>

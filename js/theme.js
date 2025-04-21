@@ -28,6 +28,3 @@ themeToggle.addEventListener('change', () => {
     });
 
 });
-
-
-
