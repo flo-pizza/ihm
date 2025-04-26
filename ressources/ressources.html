@@ -125,7 +125,9 @@
         });
 
         // Chargement des ressources
-        fetch("http://localhost:3000/api/ressources")
+        const serverURL = window.location.origin;
+
+        fetch(`${serverURL}/api/ressources`)
             .then(res => res.json())
             .then(data => {
                 allResources = data;
