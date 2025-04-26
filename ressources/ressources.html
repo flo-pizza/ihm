@@ -90,17 +90,16 @@
                 const div = document.createElement("div");
                 div.className = "carte-ressource";
                 div.innerHTML = `
-            <h3>${res.emoji} <span class="titre-ressource">${res.title}</span></h3>
-            <p><strong>${res.subtitle}</strong></p>
-            <p>Type : ${res.type}</p>
-            <p>Tags : ${res.tags.map(tag => "#" + tag).join(" ")}</p>
-            <a href="${res.viewUrl}" target="_blank" class="btn">👁 Voir</a>
-            <a href="${res.downloadUrl}" download class="btn">⬇ Télécharger</a>
-        `;
+                    <h3>${res.emoji} <span class="titre-ressource">${res.title}</span></h3>
+                    <p><strong>${res.subtitle}</strong></p>
+                    <p>Type : ${res.type}</p>
+                    <p>Tags : ${res.tags.map(tag => "#" + tag).join(" ")}</p>
+                    <a href="${res.viewUrl}" target="_blank" class="btn">👁 Voir</a>
+                    <a href="${res.downloadUrl}" download class="btn">⬇ Télécharger</a>
+                `;
                 container.appendChild(div);
             });
         }
-
 
         function applyFilters() {
             const type = typeFilter.value;
@@ -119,12 +118,11 @@
             renderResources(filtered);
         }
 
-        // Écouteurs sur tous les filtres
         [typeFilter, themeFilter, tagFilter, searchInput].forEach(el => {
             el.addEventListener("input", applyFilters);
         });
 
-        // Chargement des ressources
+        // CORRECTION ICI :
         const serverURL = window.location.origin;
 
         fetch(`${serverURL}/api/ressources`)
@@ -136,6 +134,7 @@
             .catch(err => console.error("Erreur de chargement des ressources :", err));
     });
 </script>
+
 
 </body>
 </html>

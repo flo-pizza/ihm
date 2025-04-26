@@ -28,9 +28,10 @@ app.use('/imagettes', express.static(path.join(__dirname, 'imagettes'))); // ado
 // Serve all static files from the root directory (for HTML files like a-propos.html, faq.html, etc.)
 app.use(express.static(rootDir));
 
-// Serve API route for tools.js (located in 'serveur')
+
+// Serve API route for tools.json (located in 'serveur/api')
 app.get('/api/tools', (req, res) => {
-    fs.readFile(path.join(__dirname, 'tools.js'), 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, 'api', 'tools.json'), 'utf8', (err, data) => {
         if (err) {
             res.status(500).send("Erreur de lecture du fichier JSON.");
             return;
@@ -39,6 +40,7 @@ app.get('/api/tools', (req, res) => {
         res.send(data);
     });
 });
+
 
 // Serve API route for ressources.json (located in 'serveur/api')
 app.get('/api/ressources', (req, res) => {

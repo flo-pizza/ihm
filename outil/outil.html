@@ -149,6 +149,7 @@
             document.body.classList.add("dark");
             document.getElementById("themeToggle").checked = true;
         }
+        const serverURL = window.location.origin;
 
         let tools = [];
 
@@ -163,7 +164,7 @@
                 link.target = "_blank";
 
                 const img = document.createElement("img");
-                img.src = `http://localhost:3000/images/${tool.img}`;
+                img.src = `${serverURL}/images/${tool.img}`;
                 img.alt = tool.name;
 
                 link.appendChild(img);
@@ -179,17 +180,21 @@
             });
         }
 
-        fetch("http://localhost:3000/api/tools")
+
+
+        fetch(`${serverURL}/api/tools`)
             .then(res => res.json())
             .then(data => {
                 tools = data;
+                document.querySelector(".notice").style.display = "none"; // ← cacher le message une fois que c'est prêt
                 renderTools(modeSelect.value);
+
+                modeSelect.addEventListener("change", () => {
+                    renderTools(modeSelect.value);
+                });
             })
             .catch(err => console.error("Erreur JSON :", err));
 
-        modeSelect.addEventListener("change", () => {
-            renderTools(modeSelect.value);
-        });
 
     });
 </script>
