@@ -9,5 +9,17 @@
   "private": true,
   "dependencies": {
     "express": "^5.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flo-pizza/ihm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/flo-pizza/ihm/issues"
+  },
+  "homepage": "https://github.com/flo-pizza/ihm#readme"
 }
