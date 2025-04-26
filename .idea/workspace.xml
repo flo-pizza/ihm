@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821418e3-af20-41ad-9697-3c1ff7fffe94" name="Changes" comment="v5">
-      <change afterPath="$PROJECT_DIR$/serveur/tools.json" afterDir="false" />
+    <list default="true" id="821418e3-af20-41ad-9697-3c1ff7fffe94" name="Changes" comment="v7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outil/outil.html" beforeDir="false" afterPath="$PROJECT_DIR$/outil/outil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/ressources.html" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/ressources.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serveur/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/serveur/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serveur/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/serveur/api/tools.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cours/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/cours/js/menu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +31,12 @@
     &quot;assignee&quot;: &quot;flo-pizza&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/flo-pizza/ihm.git",
-    "accountId": "32e877a8-60d9-4991-8897-4120f28b5cbe"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/flo-pizza/ihm.git&quot;,
+    &quot;accountId&quot;: &quot;32e877a8-60d9-4991-8897-4120f28b5cbe&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -55,30 +51,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Node.js.server.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Users/Utilisateur/Desktop/sitedeihm/serveur/api",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "D:/Users/Utilisateur/AppData/Roaming/JetBrains/WebStorm2024.3/node/versions/22.15.0/node",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/Utilisateur/Desktop/sitedeihm/serveur/api&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;D:/Users/Utilisateur/AppData/Roaming/JetBrains/WebStorm2024.3/node/versions/22.15.0/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": []
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: []
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Utilisateur\Desktop\sitedeihm\serveur\api" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/design" />
       <recent name="$PROJECT_DIR$/assets" />
@@ -103,7 +102,8 @@
       <workItem from="1745153478036" duration="4588000" />
       <workItem from="1745178527966" duration="14193000" />
       <workItem from="1745266855299" duration="7405000" />
-      <workItem from="1745692200671" duration="4931000" />
+      <workItem from="1745692200671" duration="6981000" />
+      <workItem from="1745702563906" duration="360000" />
     </task>
     <task id="LOCAL-00001" summary="v1 site ihm">
       <option name="closed" value="true" />
@@ -169,7 +169,39 @@
       <option name="project" value="LOCAL" />
       <updated>1745696561394</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="v6">
+      <option name="closed" value="true" />
+      <created>1745699490702</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745699490702</updated>
+    </task>
+    <task id="LOCAL-00010" summary="v7">
+      <option name="closed" value="true" />
+      <created>1745699873807</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1745699873807</updated>
+    </task>
+    <task id="LOCAL-00011" summary="v7">
+      <option name="closed" value="true" />
+      <created>1745701027011</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745701027011</updated>
+    </task>
+    <task id="LOCAL-00012" summary="v7">
+      <option name="closed" value="true" />
+      <created>1745701253744</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745701253744</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +212,8 @@
     <MESSAGE value="v2 site ihm" />
     <MESSAGE value="v3 site ihm ( sans masquage de l'erreur dans outil design )" />
     <MESSAGE value="v5" />
-    <option name="LAST_COMMIT_MESSAGE" value="v5" />
+    <MESSAGE value="v6" />
+    <MESSAGE value="v7" />
+    <option name="LAST_COMMIT_MESSAGE" value="v7" />
   </component>
 </project>
