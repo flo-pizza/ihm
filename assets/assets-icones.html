@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Assets & Modèles - Site IHM</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        header {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: white;
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+        main {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .filters {
+            width: 250px;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .filters h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+        .filters select, .filters button {
+            width: 100%;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .filters button {
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+        .page-grille {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            padding-left: 1rem;
+        }
+        .asset-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            position: relative;
+        }
+        .asset-card:hover {
+            transform: scale(1.05);
+        }
+        .asset-card img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        .asset-card h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        .asset-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0.2rem 0;
+        }
+        .rating {
+            color: #f39c12;
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 60px;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .comment-form button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .comments p {
+            font-size: 0.8rem;
+            margin: 0.2rem 0;
+        }
+        .tooltip {
+            visibility: hidden;
+            background: #333;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+        }
+        .asset-card:hover .tooltip {
+            visibility: visible;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a href="../index.html" class="home-button">🏠 Accueil</a>
+    <h1>Bibliothèque d’Assets</h1>
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+    </label>
+</header>
+
+<main>
+    <!-- Barre de filtrage à facettes -->
+    <aside class="filters">
+        <h2>Filtres</h2>
+        <select id="filter-type">
+            <option value="">Tous les types</option>
+            <option value="icône">Icône</option>
+            <option value="composant UI">Composant UI</option>
+            <option value="wireframe">Wireframe</option>
+            <option value="prototype">Prototype</option>
+            <option value="palette">Palette</option>
+            <option value="mockup">Mockup</option>
+            <option value="typographie">Typographie</option>
+        </select>
+        <select id="filter-format">
+            <option value="">Tous les formats</option>
+            <option value="SVG">SVG</option>
+            <option value="Figma">Figma</option>
+            <option value="Sketch">Sketch</option>
+            <option value="PNG">PNG</option>
+            <option value="Adobe XD">Adobe XD</option>
+            <option value="OTF">OTF</option>
+        </select>
+        <select id="filter-theme">
+            <option value="">Tous les thèmes</option>
+            <option value="minimaliste">Minimaliste</option>
+            <option value="coloré">Coloré</option>
+            <option value="sombre">Sombre</option>
+        </select>
+        <select id="filter-compatibility">
+            <option value="">Toutes compatibilités</option>
+            <option value="web">Web</option>
+            <option value="mobile">Mobile</option>
+            <option value="desktop">Desktop</option>
+        </select>
+        <select id="filter-complexity">
+            <option value="">Tous niveaux</option>
+            <option value="simple">Simple</option>
+            <option value="intermédiaire">Intermédiaire</option>
+            <option value="avancé">Avancé</option>
+        </select>
+        <select id="sort-by">
+            <option value="name">Trier par nom</option>
+            <option value="rating">Trier par note</option>
+            <option value="date">Trier par date</option>
+        </select>
+        <button onclick="filterAssets()">Appliquer</button>
+    </aside>
+
+    <!-- Grille d'assets -->
+    <section id="assets-container" class="page-grille"></section>
+</main>
+
+<script>
+    // Liste des assets
+    const assets = [
+        {
+            id: 1, type: "icône", format: "SVG", theme: "minimaliste", compatibility: "web", complexity: "simple",
+            title: "Icônes minimalistes", description: "Ensemble de 50 icônes SVG pour interfaces web.",
+            author: "Marie Dubois", authorLink: "https://dribbble.com/marie", authorBio: "Designer UI/UX à Paris",
+            image: "images/icones-minimalistes.png", rating: 4, comments: []
+        },
+        {
+            id: 2, type: "composant UI", format: "Figma", theme: "coloré", compatibility: "web", complexity: "intermédiaire",
+            title: "Bouton animé", description: "Bouton avec animation au clic, compatible React.",
+            author: "Jean Dupont", authorLink: "https://behance.net/jeandupont", authorBio: "Développeur front-end",
+            image: "images/bouton-anime.png", rating: 3, comments: []
+        },
+        {
+            id: 3, type: "wireframe", format: "Figma", theme: "minimaliste", compatibility: "mobile", complexity: "intermédiaire",
+            title: "Wireframe mobile", description: "Modèle Figma pour une app mobile.",
+            author: "Sophie Martin", authorLink: "https://dribbble.com/sophie", authorBio: "Designer d'apps",
+            image: "images/wireframe-mobile.png", rating: 5, comments: []
+        },
+        {
+            id: 4, type: "composant UI", format: "Sketch", theme: "sombre", compatibility: "web", complexity: "simple",
+            title: "Barre de navigation", description: "Composant UI pour sites web modernes.",
+            author: "Lucas Bernard", authorLink: "https://behance.net/lucas", authorBio: "Designer UI",
+            image: "images/nav-bar.png", rating: 4, comments: []
+        },
+        {
+            id: 5, type: "palette", format: "PNG", theme: "coloré", compatibility: "web,mobile", complexity: "simple",
+            title: "Palette pastel", description: "Palette pastel pour interfaces accessibles.",
+            author: "Clara Lefèvre", authorLink: "https://dribbble.com/clara", authorBio: "Designer graphique",
+            image: "images/palette-pastel.png", rating: 3, comments: []
+        },
+        {
+            id: 6, type: "composant UI", format: "Figma", theme: "minimaliste", compatibility: "web", complexity: "avancé",
+            title: "Formulaire d’inscription", description: "Composant UI avec validation.",
+            author: "Emma Roux", authorLink: "https://behance.net/emma", authorBio: "Designer UI/UX",
+            image: "images/formulaire.png", rating: 5, comments: []
+        },
+        {
+            id: 7, type: "prototype", format: "Adobe XD", theme: "coloré", compatibility: "web", complexity: "intermédiaire",
+            title: "Prototype de carrousel", description: "Micro-interaction pour carrousel d’images.",
+            author: "Paul Garnier", authorLink: "https://dribbble.com/paul", authorBio: "Designer d’interactions",
+            image: "images/carrousel.png", rating: 4, comments: []
+        },
+        {
+            id: 8, type: "mockup", format: "Figma", theme: "sombre", compatibility: "web", complexity: "avancé",
+            title: "Mockup de site e-commerce", description: "Maquette complète pour site marchand.",
+            author: "Léa Moreau", authorLink: "https://behance.net/lea", authorBio: "Designer web",
+            image: "images/ecommerce-mockup.png", rating: 5, comments: []
+        },
+        {
+            id: 9, type: "icône", format: "PNG", theme: "coloré", compatibility: "mobile", complexity: "intermédiaire",
+            title: "Icônes 3D", description: "Ensemble d’icônes 3D pour apps mobiles.",
+            author: "Antoine Laurent", authorLink: "https://dribbble.com/antoine", authorBio: "Designer 3D",
+            image: "images/icones-3d.png", rating: 3, comments: []
+        },
+        {
+            id: 10, type: "composant UI", format: "Figma", theme: "minimaliste", compatibility: "web", complexity: "avancé",
+            title: "Carte interactive", description: "Composant UI pour afficher des données.",
+            author: "Chloé Petit", authorLink: "https://behance.net/chloe", authorBio: "Designer de données",
+            image: "images/carte-interactive.png", rating: 4, comments: []
+        },
+        {
+            id: 11, type: "wireframe", format: "Sketch", theme: "sombre", compatibility: "desktop", complexity: "intermédiaire",
+            title: "Wireframe desktop", description: "Modèle Sketch pour application desktop.",
+            author: "Hugo Fournier", authorLink: "https://dribbble.com/hugo", authorBio: "Designer logiciel",
+            image: "images/wireframe-desktop.png", rating: 4, comments: []
+        },
+        {
+            id: 12, type: "typographie", format: "OTF", theme: "minimaliste", compatibility: "web,mobile", complexity: "simple",
+            title: "Typographie IHM", description: "Ensemble de polices optimisées pour l’IHM.",
+            author: "Manon David", authorLink: "https://behance.net/manon", authorBio: "Typographe",
+            image: "images/typographie.png", rating: 3, comments: []
+        },
+        {
+            id: 13, type: "composant UI", format: "Figma", theme: "coloré", compatibility: "web", complexity: "intermédiaire",
+            title: "Bouton 3D", description: "Bouton avec effet 3D au survol.",
+            author: "Tom Richard", authorLink: "https://dribbble.com/tom", authorBio: "Designer UI",
+            image: "images/bouton-3d.png", rating: 4, comments: []
+        },
+        {
+            id: 14, type: "prototype", format: "Adobe XD", theme: "sombre", compatibility: "web", complexity: "intermédiaire",
+            title: "Prototype de menu", description: "Menu déroulant interactif.",
+            author: "Nina Lambert", authorLink: "https://behance.net/nina", authorBio: "Designer d’interactions",
+            image: "images/menu-prototype.png", rating: 3, comments: []
+        },
+        {
+            id: 15, type: "mockup", format: "Figma", theme: "coloré", compatibility: "mobile", complexity: "avancé",
+            title: "Mockup d’app", description: "Maquette pour application de fitness.",
+            author: "Mathilde Giraud", authorLink: "https://dribbble.com/mathilde", authorBio: "Designer mobile",
+            image: "images/app-mockup.png", rating: 5, comments: []
+        },
+        {
+            id: 16, type: "icône", format: "SVG", theme: "minimaliste", compatibility: "web", complexity: "simple",
+            title: "Icônes accessibles", description: "Icônes SVG avec support ARIA.",
+            author: "Romain Blanc", authorLink: "https://behance.net/romain", authorBio: "Designer accessible",
+            image: "images/icones-accessibles.png", rating: 4, comments: []
+        },
+        {
+            id: 17, type: "composant UI", format: "Figma", theme: "sombre", compatibility: "web", complexity: "avancé",
+            title: "Composant de recherche", description: "Barre de recherche avec suggestions.",
+            author: "Elise Mercier", authorLink: "https://dribbble.com/elise", authorBio: "Designer UI/UX",
+            image: "images/recherche.png", rating: 5, comments: []
+        },
+        {
+            id: 18, type: "wireframe", format: "Figma", theme: "minimaliste", compatibility: "web", complexity: "intermédiaire",
+            title: "Wireframe portfolio", description: "Modèle Figma pour portfolio de designer.",
+            author: "Victor Lemoine", authorLink: "https://behance.net/victor", authorBio: "Designer web",
+            image: "images/portfolio-wireframe.png", rating: 3, comments: []
+        },
+        {
+            id: 19, type: "palette", format: "PNG", theme: "sombre", compatibility: "web,mobile", complexity: "simple",
+            title: "Palette sombre", description: "Palette de couleurs pour thème sombre.",
+            author: "Laura Simon", authorLink: "https://dribbble.com/laura", authorBio: "Designer graphique",
+            image: "images/palette-sombre.png", rating: 4, comments: []
+        },
+        {
+            id: 20, type: "composant UI", format: "Sketch", theme: "coloré", compatibility: "web", complexity: "intermédiaire",
+            title: "Carte de profil", description: "Composant UI pour profils utilisateurs.",
+            author: "Adrien Colin", authorLink: "https://behance.net/adrien", authorBio: "Designer UI",
+            image: "images/carte-profil.png", rating: 4, comments: []
+        }
+    ];
+
+    // Charger les notes et commentaires depuis localStorage
+    assets.forEach(asset => {
+        const storedRating = localStorage.getItem(`rating-${asset.id}`);
+        if (storedRating) asset.rating = parseInt(storedRating);
+        const storedComments = localStorage.getItem(`comments-${asset.id}`);
+        if (storedComments) asset.comments = JSON.parse(storedComments);
+    });
+
+    // Afficher les assets
+    function displayAssets(assetsToShow) {
+        const container = document.getElementById("assets-container");
+        container.innerHTML = assetsToShow.map(asset => `
+        <div class="asset-card">
+          <span class="tooltip">${asset.description}</span>
+          <img src="${asset.image}" alt="${asset.title}">
+          <h3>${asset.title}</h3>
+          <p>${asset.description}</p>
+          <p>Format: ${asset.format}</p>
+          <p>Auteur: <a href="${asset.authorLink}" target="_blank">${asset.author}</a> (${asset.authorBio})</p>
+          <p>Tags: ${asset.theme}, ${asset.compatibility}, ${asset.complexity}</p>
+          <p>Note: <span class="rating">${"★".repeat(asset.rating)}${"☆".repeat(5 - asset.rating)}</span></p>
+          <input type="range" min="1" max="5" value="${asset.rating}" onchange="updateRating(${asset.id}, this.value)">
+          <a href="${asset.image}" download>Télécharger</a>
+          <form class="comment-form" onsubmit="addComment(${asset.id}, this); return false;">
+            <textarea placeholder="Laissez un commentaire"></textarea>
+            <button type="submit">Envoyer</button>
+          </form>
+          <div class="comments">
+            ${asset.comments.map(comment => `<p><strong>Utilisateur</strong>: ${comment}</p>`).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // Filtrer et trier les assets
+    function filterAssets() {
+        const type = document.getElementById("filter-type").value;
+        const format = document.getElementById("filter-format").value;
+        const theme = document.getElementById("filter-theme").value;
+        const compatibility = document.getElementById("filter-compatibility").value;
+        const complexity = document.getElementById("filter-complexity").value;
+        const sortBy = document.getElementById("sort-by").value;
+
+        let filteredAssets = assets.filter(asset => {
+            return (!type || asset.type === type) &&
+                (!format || asset.format === format) &&
+                (!theme || asset.theme === theme) &&
+                (!compatibility || asset.compatibility.includes(compatibility)) &&
+                (!complexity || asset.complexity === complexity);
+        });
+
+        // Trier les assets
+        filteredAssets.sort((a, b) => {
+            if (sortBy === "name") return a.title.localeCompare(b.title);
+            if (sortBy === "rating") return b.rating - a.rating;
+            if (sortBy === "date") return b.id - a.id;
+            return 0;
+        });
+
+        displayAssets(filteredAssets);
+    }
+
+    // Mettre à jour la note
+    function updateRating(assetId, value) {
+        const asset = assets.find(a => a.id === assetId);
+        asset.rating = parseInt(value);
+        localStorage.setItem(`rating-${assetId}`, value);
+        filterAssets();
+    }
+
+    // Ajouter un commentaire
+    function addComment(assetId, form) {
+        const comment = form.querySelector("textarea").value;
+        if (comment.trim()) {
+            const asset = assets.find(a => a.id === assetId);
+            asset.comments.push(comment);
+            localStorage.setItem(`comments-${assetId}`, JSON.stringify(asset.comments));
+            form.querySelector("textarea").value = "";
+            filterAssets();
+        }
+    }
+
+    // Initialiser l'affichage
+    filterAssets();
+
+    // Gestion du thème sombre/clair
+    document.getElementById("themeToggle").addEventListener("change", (e) => {
+        document.body.style.background = e.target.checked ? "#222" : "#f4f4f4";
+        document.querySelectorAll(".asset-card, .filters").forEach(el => {
+            el.style.background = e.target.checked ? "#333" : "white";
+            el.style.color = e.target.checked ? "white" : "#333";
+        });
+    });
+</script>
+<script src="../js/theme.js"></script>
+</body>
+</html>

@@ -2,23 +2,183 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Assets & Modèles – Labo de Flo</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&family=Open+Sans&family=Roboto&family=Georgia&family=Arial&family=Times+New+Roman&display=swap" rel="stylesheet">
+    <title>Assets & Modèles - Site IHM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
     <style>
-        .section {
-            margin: 40px auto;
-            max-width: 800px;
-            padding: 0 1em;
+        :root {
+            --fond: #f8f8f8;
+            --texte: #222;
+            --bloc: white;
+            --lien: #000;
+            --accent: #00bcd4;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+            --info: #2196f3;
+            --highlight: #e0f7fa;
+            --surface: #f1f1f1;
         }
 
-        .bloc-asset {
+        body.dark {
+            --fond: #121212;
+            --texte: #e0e0e0;
+            --bloc: #1e1e1e;
+            --lien: #00bcd4;
+            --accent: #00bcd4;
+            --success: #66bb6a;
+            --warning: #ffa726;
+            --danger: #ef5350;
+            --info: #42a5f5;
+            --highlight: #263238;
+            --surface: #2a2a2a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--fond);
+            color: var(--texte);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: var(--font-active, 'Inter', sans-serif), serif;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .page-grille {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Minimum 3 colonnes */
+            gap: 15px;
+            padding-left: 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-grille {
+                grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur écrans moyens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-grille {
+                grid-template-columns: 1fr; /* 1 colonne sur petits écrans */
+            }
+            main {
+                flex-direction: column; /* Empiler filtres et grille */
+            }
+            .filters {
+                width: 100%;
+            }
+        }
+
+        .bloc {
             background-color: var(--bloc);
-            padding: 1em;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: var(--texte);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bloc:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark .bloc:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: var(--texte);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 0.9em;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--lien);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .switch {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 25px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
         }
 
         .home-button {
@@ -26,7 +186,7 @@
             top: 15px;
             left: 15px;
             background-color: var(--accent);
-            color: #fff;
+            color: white;
             padding: 8px 14px;
             border-radius: 8px;
             text-decoration: none;
@@ -41,19 +201,151 @@
             transform: scale(1.05);
         }
 
-        .switch {
-            position: absolute;
-            top: 15px;
-            right: 15px;
+        .filters {
+            width: 250px;
+            padding: 15px;
+            background-color: var(--bloc);
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
+        .filters h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+
+        .filters button {
+            width: 100%;
+            margin-top: 1em;
+            padding: 0.5em;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filters button:hover {
+            background-color: #0097a7;
+        }
+
+        .filtres-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            margin-bottom: 2em;
+            padding-left: 0.5em;
+        }
+
+        .filtres-container label {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.9em;
+            color: var(--texte);
+        }
+
+        .filtres-container select {
+            margin-top: 0.3em;
+            padding: 0.4em 0.6em;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background-color: var(--bloc);
+            color: var(--texte);
+            font-size: 0.9em;
+        }
+
+        .asset-card {
+            background-color: var(--bloc);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+
+        .asset-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark .asset-card:hover {
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .asset-card img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        .asset-card h3 {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+            color: var(--accent);
+        }
+
+        .asset-card p {
+            font-size: 0.9em;
+            color: var(--texte);
+            margin: 0.2em 0;
+        }
+
+        .rating {
+            color: #f39c12;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            height: 60px;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: var(--surface);
+            color: var(--texte);
+        }
+
+        .comment-form button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5em;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .comment-form button:hover {
+            background-color: #0097a7;
+        }
+
+        .comments p {
+            font-size: 0.8em;
+            margin: 0.2em 0;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            background-color: var(--highlight);
+            color: var(--texte);
+            padding: 5px;
+            border-radius: 4px;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+
+        .asset-card:hover .tooltip {
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
-
 <header>
     <a href="../index.html" class="home-button">🏠 Accueil</a>
-    <h1>Assets & Modèles</h1>
+    <h1>Bibliothèque d’Assets</h1>
+    <p>Explorez notre bibliothèque d'assets pour vos projets IHM</p>
     <label class="switch">
         <input type="checkbox" id="themeToggle">
         <span class="slider"></span>
@@ -61,158 +353,317 @@
 </header>
 
 <main>
-    <main>
-        <div class="section">
-
-
-            <h2>🟦 Boutons </h2>
-            <div class="bloc-asset">
-                <button class="accent">Clique-moi</button>
-                <pre><code>&lt;button class="accent"&gt;Clique-moi&lt;/button&gt;</code></pre>
-                <button class="copy-btn" data-code='&lt;button class="accent"&gt;Clique-moi&lt;/button&gt;'>📋 Copier le code</button>
-            </div>
-
-
-            <h2>🏷️ Étiquettes / Tags</h2>
-            <div class="bloc-asset">
-                <span class="tag success">Succès</span>
-                <span class="tag warning">Avertissement</span>
-                <span class="tag danger">Erreur</span>
-                <pre><code>&lt;span class="tag success"&gt;Succès&lt;/span&gt;
-&lt;span class="tag warning"&gt;Avertissement&lt;/span&gt;
-&lt;span class="tag danger"&gt;Erreur&lt;/span&gt;</code></pre>
-                <button class="copy-btn" data-code='&lt;span class="tag success"&gt;Succès&lt;/span&gt;&#10;&lt;span class="tag warning"&gt;Avertissement&lt;/span&gt;&#10;&lt;span class="tag danger"&gt;Erreur&lt;/span&gt;'>📋 Copier le code</button>
-            </div>
-
-
-            <h2>🗂️ Carte / Bloc</h2>
-            <div class="bloc-asset">
-                <div class="bloc">
-                    <h3>Titre de la carte</h3>
-                    <p>Exemple de contenu à l’intérieur d’un bloc stylé.</p>
-                    <a href="#">En savoir plus</a>
-                </div>
-                <pre><code>&lt;div class="bloc"&gt;
-  &lt;h3&gt;Titre de la carte&lt;/h3&gt;
-  &lt;p&gt;Exemple de contenu à l’intérieur d’un bloc stylé.&lt;/p&gt;
-  &lt;a href="#"&gt;En savoir plus&lt;/a&gt;
-&lt;/div&gt;</code></pre>
-                <button class="copy-btn" data-code='&lt;div class="bloc"&gt;&#10;  &lt;h3&gt;Titre de la carte&lt;/h3&gt;&#10;  &lt;p&gt;Exemple de contenu à l’intérieur d’un bloc stylé.&lt;/p&gt;&#10;  &lt;a href="#"&gt;En savoir plus&lt;/a&gt;&#10;&lt;/div&gt;'>📋 Copier le code</button>
-            </div>
-
-
-            <h2>📝 Formulaire</h2>
-            <div class="bloc-asset">
-                <form>
-                    <label for="email">Email :</label><br>
-                    <input type="email" id="email" name="email" placeholder="exemple@mail.com"><br><br>
-                    <button type="submit" class="accent">Envoyer</button>
-                </form>
-                <pre><code>&lt;form&gt;
-  &lt;label for="email"&gt;Email :&lt;/label&gt;&lt;br&gt;
-  &lt;input type="email" id="email" name="email" placeholder="exemple@mail.com"&gt;&lt;br&gt;&lt;br&gt;
-  &lt;button type="submit" class="accent"&gt;Envoyer&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-                <button class="copy-btn" data-code='&lt;form&gt;&#10;  &lt;label for="email"&gt;Email :&lt;/label&gt;&lt;br&gt;&#10;  &lt;input type="email" id="email" name="email" placeholder="exemple@mail.com"&gt;&lt;br&gt;&lt;br&gt;&#10;  &lt;button type="submit" class="accent"&gt;Envoyer&lt;/button&gt;&#10;&lt;/form&gt;'>📋 Copier le code</button>
-            </div>
-
-
-            <h2>🎨 Icônes SVG</h2>
-            <div class="bloc-asset">
-                <!-- Aperçu des icônes -->
-                <div style="display: flex; gap: 20px; align-items: center;">
-                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2L2 7v2c0 5.52 3.33 10.74 10 13 6.67-2.26 10-7.48 10-13V7l-10-5z"/>
-                    </svg>
-                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                </div>
-
-                <pre><code>&lt;svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"&gt;
-  &lt;path d="M12 2L2 7v2c0 5.52 3.33 10.74 10 13 6.67-2.26 10-7.48 10-13V7l-10-5z"/&gt;
-&lt;/svg&gt;
-
-&lt;svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"&gt;
-  &lt;path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/&gt;
-&lt;/svg&gt;</code></pre>
-
-                <button class="copy-btn" data-code='&lt;svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"&gt;&#10;  &lt;path d="M12 2L2 7v2c0 5.52 3.33 10.74 10 13 6.67-2.26 10-7.48 10-13V7l-10-5z"/&gt;&#10;&lt;/svg&gt;&#10;&#10;&lt;svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"&gt;&#10;  &lt;path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/&gt;&#10;&lt;/svg&gt;'>📋 Copier le code</button>
-            </div>
-
-            <h2>🖼️ Carte avec image + texte</h2>
-            <div class="bloc-asset">
-                <div class="card-image">
-                    <img src="https://picsum.photos/300/180" alt="Image aléatoire">
-
-                    <div class="card-content">
-                        <h3>Titre de la carte</h3>
-                        <p>Un petit texte descriptif pour présenter un élément visuel, un projet ou un modèle.</p>
-                    </div>
-                </div>
-
-                <pre><code>&lt;div class="card-image"&gt;
-  &lt;img src="https://picsum.photos/300/180" alt="Image de carte"&gt;
-  &lt;div class="card-content"&gt;
-    &lt;h3&gt;Titre de la carte&lt;/h3&gt;
-    &lt;p&gt;Un petit texte descriptif pour présenter un élément visuel.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-                <button class="copy-btn" data-code='&lt;div class="card-image"&gt;&#10;  &lt;img src="https://via.placeholder.com/300x180" alt="Image de carte"&gt;&#10;  &lt;div class="card-content"&gt;&#10;    &lt;h3&gt;Titre de la carte&lt;/h3&gt;&#10;    &lt;p&gt;Un petit texte descriptif pour présenter un élément visuel.&lt;/p&gt;&#10;  &lt;/div&gt;&#10;&lt;/div&gt;'>📋 Copier le code</button>
-            </div>
-
-
-            <h2>📐 Grille responsive (3 colonnes)</h2>
-            <div class="bloc-asset" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
-                <div style="background: var(--highlight); padding: 1em; border-radius: 6px;">Bloc 1</div>
-                <div style="background: var(--highlight); padding: 1em; border-radius: 6px;">Bloc 2</div>
-                <div style="background: var(--highlight); padding: 1em; border-radius: 6px;">Bloc 3</div>
-            </div>
-            <pre><code>&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;"&gt;
-  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 1&lt;/div&gt;
-  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 2&lt;/div&gt;
-  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 3&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-            <button class="copy-btn" data-code='&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;"&gt;&#10;  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 1&lt;/div&gt;&#10;  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 2&lt;/div&gt;&#10;  &lt;div style="background: var(--highlight); padding: 1em; border-radius: 6px;"&gt;Bloc 3&lt;/div&gt;&#10;&lt;/div&gt;'>📋 Copier le code</button>
-
+    <!-- Barre de filtrage à facettes -->
+    <aside class="filters">
+        <h2>Filtres</h2>
+        <div class="filtres-container">
+            <label>
+                Type
+                <select id="filter-type">
+                    <option value="">Tous les types</option>
+                    <option value="icône">Icône</option>
+                    <option value="composant UI">Composant UI</option>
+                    <option value="wireframe">Wireframe</option>
+                    <option value="prototype">Prototype</option>
+                    <option value="palette">Palette</option>
+                    <option value="mockup">Mockup</option>
+                    <option value="typographie">Typographie</option>
+                </select>
+            </label>
+            <label>
+                Format
+                <select id="filter-format">
+                    <option value="">Tous les formats</option>
+                    <option value="SVG">SVG</option>
+                    <option value="Figma">Figma</option>
+                    <option value="Sketch">Sketch</option>
+                    <option value="PNG">PNG</option>
+                    <option value="Adobe XD">Adobe XD</option>
+                    <option value="OTF">OTF</option>
+                </select>
+            </label>
+            <label>
+                Thème
+                <select id="filter-theme">
+                    <option value="">Tous les thèmes</option>
+                    <option value="minimaliste">Minimaliste</option>
+                    <option value="coloré">Coloré</option>
+                    <option value="sombre">Sombre</option>
+                </select>
+            </label>
+            <label>
+                Compatibilité
+                <select id="filter-compatibility">
+                    <option value="">Toutes compatibilités</option>
+                    <option value="web">Web</option>
+                    <option value="mobile">Mobile</option>
+                    <option value="desktop">Desktop</option>
+                </select>
+            </label>
+            <label>
+                Complexité
+                <select id="filter-complexity">
+                    <option value="">Tous niveaux</option>
+                    <option value="simple">Simple</option>
+                    <option value="intermédiaire">Intermédiaire</option>
+                    <option value="avancé">Avancé</option>
+                </select>
+            </label>
+            <label>
+                Trier par
+                <select id="sort-by">
+                    <option value="name">Nom</option>
+                    <option value="rating">Note</option>
+                    <option value="date">Date</option>
+                </select>
+            </label>
         </div>
-    </main>
+        <button onclick="filterAssets()">Appliquer</button>
+    </aside>
 
-<!-- Script pour appliquer la police et le thème -->
+    <!-- Grille d'assets -->
+    <section id="assets-container" class="page-grille"></section>
+</main>
+
 <script>
+    // Theme toggle and font persistence
+    console.log("Script chargé !");
+    const themeToggle = document.getElementById('themeToggle');
+
+    // Appliquer le thème sauvegardé
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        themeToggle.checked = true;
+    }
+
+    // Réagir au clic sur le switch
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            document.body.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // Appliquer la police choisie
     document.addEventListener("DOMContentLoaded", () => {
-        // Appliquer la police enregistrée
         const savedFont = localStorage.getItem("fontFamily");
         if (savedFont) {
+            document.body.style.fontFamily = `'${savedFont}', sans-serif`;
             document.documentElement.style.setProperty('--font-active', `'${savedFont}', sans-serif`);
         }
+    });
 
-        // Appliquer le thème sombre si activé
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark");
-            const toggle = document.getElementById("themeToggle");
-            if (toggle) toggle.checked = true;
+    // Liste des assets
+    const assets = [
+        {
+            id: 1, type: "icône", format: "SVG", theme: "minimaliste", compatibility: "web", complexity: "simple",
+            title: "Icônes minimalistes", description: "Ensemble de 50 icônes SVG pour interfaces web.",
+            author: "Marie Dubois", authorLink: "https://dribbble.com/marie", authorBio: "Designer UI/UX à Paris",
+            image: "../images/icones-minimalistes.png", rating: 4, comments: []
+        },
+        {
+            id: 2, type: "composant UI", format: "Figma", theme: "coloré", compatibility: "web", complexity: "intermédiaire",
+            title: "Bouton animé", description: "Bouton avec animation au clic, compatible React.",
+            author: "Jean Dupont", authorLink: "https://behance.net/jeandupont", authorBio: "Développeur front-end",
+            image: "../images/bouton-anime.png", rating: 3, comments: []
+        },
+        {
+            id: 3, type: "wireframe", format: "Figma", theme: "minimaliste", compatibility: "mobile", complexity: "intermédiaire",
+            title: "Wireframe mobile", description: "Modèle Figma pour une app mobile.",
+            author: "Sophie Martin", authorLink: "https://dribbble.com/sophie", authorBio: "Designer d'apps",
+            image: "../images/wireframe-mobile.png", rating: 5, comments: []
+        },
+        {
+            id: 4, type: "composant UI", format: "Sketch", theme: "sombre", compatibility: "web", complexity: "simple",
+            title: "Barre de navigation", description: "Composant UI pour sites web modernes.",
+            author: "Lucas Bernard", authorLink: "https://behance.net/lucas", authorBio: "Designer UI",
+            image: "../images/nav-bar.png", rating: 4, comments: []
+        },
+        {
+            id: 5, type: "palette", format: "PNG", theme: "coloré", compatibility: "web,mobile", complexity: "simple",
+            title: "Palette pastel", description: "Palette pastel pour interfaces accessibles.",
+            author: "Clara Lefèvre", authorLink: "https://dribbble.com/clara", authorBio: "Designer graphique",
+            image: "../images/palette-pastel.png", rating: 3, comments: []
+        },
+        {
+            id: 6, type: "composant UI", format: "Figma", theme: "minimaliste", compatibility: "web", complexity: "avancé",
+            title: "Formulaire d’inscription", description: "Composant UI avec validation.",
+            author: "Emma Roux", authorLink: "https://behance.net/emma", authorBio: "Designer UI/UX",
+            image: "../images/formulaire.png", rating: 5, comments: []
+        },
+        {
+            id: 7, type: "prototype", format: "Adobe XD", theme: "coloré", compatibility: "web", complexity: "intermédiaire",
+            title: "Prototype de carrousel", description: "Micro-interaction pour carrousel d’images.",
+            author: "Paul Garnier", authorLink: "https://dribbble.com/paul", authorBio: "Designer d’interactions",
+            image: "../images/carrousel.png", rating: 4, comments: []
+        },
+        {
+            id: 8, type: "mockup", format: "Figma", theme: "sombre", compatibility: "web", complexity: "avancé",
+            title: "Mockup de site e-commerce", description: "Maquette complète pour site marchand.",
+            author: "Léa Moreau", authorLink: "https://behance.net/lea", authorBio: "Designer web",
+            image: "../images/ecommerce-mockup.png", rating: 5, comments: []
+        },
+        {
+            id: 9, type: "icône", format: "PNG", theme: "coloré", compatibility: "mobile", complexity: "intermédiaire",
+            title: "Icônes 3D", description: "Ensemble d’icônes 3D pour apps mobiles.",
+            author: "Antoine Laurent", authorLink: "https://dribbble.com/antoine", authorBio: "Designer 3D",
+            image: "../images/icones-3d.png", rating: 3, comments: []
+        },
+        {
+            id: 10, type: "composant UI", format: "Figma", theme: "minimaliste", compatibility: "web", complexity: "avancé",
+            title: "Carte interactive", description: "Composant UI pour afficher des données.",
+            author: "Chloé Petit", authorLink: "https://behance.net/chloe", authorBio: "Designer de données",
+            image: "../images/carte-interactive.png", rating: 4, comments: []
+        },
+        {
+            id: 11, type: "wireframe", format: "Sketch", theme: "sombre", compatibility: "desktop", complexity: "intermédiaire",
+            title: "Wireframe desktop", description: "Modèle Sketch pour application desktop.",
+            author: "Hugo Fournier", authorLink: "https://dribbble.com/hugo", authorBio: "Designer logiciel",
+            image: "../images/wireframe-desktop.png", rating: 4, comments: []
+        },
+        {
+            id: 12, type: "typographie", format: "OTF", theme: "minimaliste", compatibility: "web,mobile", complexity: "simple",
+            title: "Typographie IHM", description: "Ensemble de polices optimisées pour l’IHM.",
+            author: "Manon David", authorLink: "https://behance.net/manon", authorBio: "Typographe",
+            image: "../images/typographie.png", rating: 3, comments: []
+        },
+        {
+            id: 13, type: "composant UI", format: "Figma", theme: "coloré", compatibility: "web", complexity: "intermédiaire",
+            title: "Bouton 3D", description: "Bouton avec effet 3D au survol.",
+            author: "Tom Richard", authorLink: "https://dribbble.com/tom", authorBio: "Designer UI",
+            image: "../images/bouton-3d.png", rating: 4, comments: []
+        },
+        {
+            id: 14, type: "prototype", format: "Adobe XD", theme: "sombre", compatibility: "web", complexity: "intermédiaire",
+            title: "Prototype de menu", description: "Menu déroulant interactif.",
+            author: "Nina Lambert", authorLink: "https://behance.net/nina", authorBio: "Designer d’interactions",
+            image: "../images/menu-prototype.png", rating: 3, comments: []
+        },
+        {
+            id: 15, type: "mockup", format: "Figma", theme: "coloré", compatibility: "mobile", complexity: "avancé",
+            title: "Mockup d’app", description: "Maquette pour application de fitness.",
+            author: "Mathilde Giraud", authorLink: "https://dribbble.com/mathilde", authorBio: "Designer mobile",
+            image: "../images/app-mockup.png", rating: 5, comments: []
+        },
+        {
+            id: 16, type: "icône", format: "SVG", theme: "minimaliste", compatibility: "web", complexity: "simple",
+            title: "Icônes accessibles", description: "Icônes SVG avec support ARIA.",
+            author: "Romain Blanc", authorLink: "https://behance.net/romain", authorBio: "Designer accessible",
+            image: "../images/icones-accessibles.png", rating: 4, comments: []
+        },
+        {
+            id: 17, type: "composant UI", format: "Figma", theme: "sombre", compatibility: "web", complexity: "avancé",
+            title: "Composant de recherche", description: "Barre de recherche avec suggestions.",
+            author: "Elise Mercier", authorLink: "https://dribbble.com/elise", authorBio: "Designer UI/UX",
+            image: "../images/recherche.png", rating: 5, comments: []
+        },
+        {
+            id: 18, type: "wireframe", format: "Figma", theme: "minimaliste", compatibility: "web", complexity: "intermédiaire",
+            title: "Wireframe portfolio", description: "Modèle Figma pour portfolio de designer.",
+            author: "Victor Lemoine", authorLink: "https://behance.net/victor", authorBio: "Designer web",
+            image: "../images/portfolio-wireframe.png", rating: 3, comments: []
+        },
+        {
+            id: 19, type: "palette", format: "PNG", theme: "sombre", compatibility: "web,mobile", complexity: "simple",
+            title: "Palette sombre", description: "Palette de couleurs pour thème sombre.",
+            author: "Laura Simon", authorLink: "https://dribbble.com/laura", authorBio: "Designer graphique",
+            image: "../images/palette-sombre.png", rating: 4, comments: []
+        },
+        {
+            id: 20, type: "composant UI", format: "Sketch", theme: "coloré", compatibility: "web", complexity: "intermédiaire",
+            title: "Carte de profil", description: "Composant UI pour profils utilisateurs.",
+            author: "Adrien Colin", authorLink: "https://behance.net/adrien", authorBio: "Designer UI",
+            image: "../images/carte-profil.png", rating: 4, comments: []
         }
-    });
-</script>
+    ];
 
-<!-- Gestion du thème (mode sombre) -->
-<script src="../js/theme.js"></script>
-<script>
-    document.querySelectorAll(".copy-btn").forEach(button => {
-        button.addEventListener("click", () => {
-            const code = button.getAttribute("data-code");
-            navigator.clipboard.writeText(code).then(() => {
-                button.textContent = "✅ Copié !";
-                setTimeout(() => {
-                    button.textContent = "📋 Copier le code";
-                }, 2000);
-            });
-        });
+    // Charger les notes et commentaires depuis localStorage
+    assets.forEach(asset => {
+        const storedRating = localStorage.getItem(`rating-${asset.id}`);
+        if (storedRating) asset.rating = parseInt(storedRating);
+        const storedComments = localStorage.getItem(`comments-${asset.id}`);
+        if (storedComments) asset.comments = JSON.parse(storedComments);
     });
+
+    // Afficher les assets
+    function displayAssets(assetsToShow) {
+        const container = document.getElementById("assets-container");
+        container.innerHTML = assetsToShow.map(asset => `
+                <div class="asset-card">
+                    <span class="tooltip">${asset.description}</span>
+                    <img src="${asset.image}" alt="${asset.title}">
+                    <h3>${asset.title}</h3>
+                    <p>${asset.description}</p>
+                    <p>Format: ${asset.format}</p>
+                    <p>Auteur: <a href="${asset.authorLink}" target="_blank">${asset.author}</a> (${asset.authorBio})</p>
+                    <p>Tags: ${asset.theme}, ${asset.compatibility}, ${asset.complexity}</p>
+                    <p>Note: <span class="rating">${"★".repeat(asset.rating)}${"☆".repeat(5 - asset.rating)}</span></p>
+                    <input type="range" min="1" max="5" value="${asset.rating}" onchange="updateRating(${asset.id}, this.value)">
+                    <a href="${asset.image}" download>Télécharger</a>
+                    <form class="comment-form" onsubmit="addComment(${asset.id}, this); return false;">
+                        <textarea placeholder="Laissez un commentaire"></textarea>
+                        <button type="submit">Envoyer</button>
+                    </form>
+                    <div class="comments">
+                        ${asset.comments.map(comment => `<p><strong>Utilisateur</strong>: ${comment}</p>`).join("")}
+                    </div>
+                </div>
+            `).join("");
+    }
+
+    // Filtrer et trier les assets
+    function filterAssets() {
+        const type = document.getElementById("filter-type").value;
+        const format = document.getElementById("filter-format").value;
+        const theme = document.getElementById("filter-theme").value;
+        const compatibility = document.getElementById("filter-compatibility").value;
+        const complexity = document.getElementById("filter-complexity").value;
+        const sortBy = document.getElementById("sort-by").value;
+
+        let filteredAssets = assets.filter(asset => {
+            return (!type || asset.type === type) &&
+                (!format || asset.format === format) &&
+                (!theme || asset.theme === theme) &&
+                (!compatibility || asset.compatibility.includes(compatibility)) &&
+                (!complexity || asset.complexity === complexity);
+        });
+
+        // Trier les assets
+        filteredAssets.sort((a, b) => {
+            if (sortBy === "name") return a.title.localeCompare(b.title);
+            if (sortBy === "rating") return b.rating - a.rating;
+            if (sortBy === "date") return b.id - a.id;
+            return 0;
+        });
+
+        displayAssets(filteredAssets);
+    }
+
+    // Mettre à jour la note
+    function updateRating(assetId, value) {
+        const asset = assets.find(a => a.id === assetId);
+        asset.rating = parseInt(value);
+        localStorage.setItem(`rating-${assetId}`, value);
+        filterAssets();
+    }
+
+    // Ajouter un commentaire
+    function addComment(assetId, form) {
+        const comment = form.querySelector("textarea").value;
+        if (comment.trim()) {
+            const asset = assets.find(a => a.id === assetId);
+            asset.comments.push(comment);
+            localStorage.setItem(`comments-${assetId}`, JSON.stringify(asset.comments));
+            form.querySelector("textarea").value = "";
+            filterAssets();
+        }
+    }
+
+    // Initialiser l'affichage
+    filterAssets();
 </script>
-</main>
 </body>
 </html>

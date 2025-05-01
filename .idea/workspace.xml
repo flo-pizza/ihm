@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821418e3-af20-41ad-9697-3c1ff7fffe94" name="Changes" comment="v7" />
+    <list default="true" id="821418e3-af20-41ad-9697-3c1ff7fffe94" name="Changes" comment="v7">
+      <change afterPath="$PROJECT_DIR$/assets/assets-composants.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/assets-icones.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/assets-mockups.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/assets-prototypes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/assets-styles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/assets-wireframes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/assets2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/assets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/flo-pizza/ihm.git&quot;,
-    &quot;accountId&quot;: &quot;32e877a8-60d9-4991-8897-4120f28b5cbe&quot;
+    &quot;accountId&quot;: &quot;8ec2b95f-797d-4539-97aa-ce479f8a984e&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -48,31 +60,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Users/Utilisateur/Desktop/sitedeihm/serveur/api&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;D:/Users/Utilisateur/AppData/Roaming/JetBrains/WebStorm2024.3/node/versions/22.15.0/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.server.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/florianlachieze/WebstormProjects/sitedeihm/assets",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: []
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": []
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
       <recent name="D:\Users\Utilisateur\Desktop\sitedeihm\serveur\api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -101,6 +114,8 @@
       <workItem from="1745266855299" duration="7405000" />
       <workItem from="1745692200671" duration="6981000" />
       <workItem from="1745702563906" duration="679000" />
+      <workItem from="1746097135913" duration="2000" />
+      <workItem from="1746097255879" duration="5514000" />
     </task>
     <task id="LOCAL-00001" summary="v1 site ihm">
       <option name="closed" value="true" />
