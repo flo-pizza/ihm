@@ -134,6 +134,64 @@
             .catch(err => console.error("Erreur de chargement des ressources :", err));
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const typeFilter = document.getElementById("filtre-type");
+        const themeFilter = document.getElementById("filtre-theme");
+        const tagFilter = document.getElementById("filtre-tags");
+        const searchInput = document.querySelector("input[type='text']");
+        const container = document.querySelector(".ressources-liste");
+
+        let allResources = [];
+
+        function renderResources(resources) {
+            container.innerHTML = "";
+            resources.forEach(res => {
+                const div = document.createElement("div");
+                div.className = "carte-ressource";
+                div.innerHTML = `
+                    <h3>${res.emoji} <span class="titre-ressource">${res.title}</span></h3>
+                    <p><strong>${res.subtitle}</strong></p>
+                    <p>Type : ${res.type}</p>
+                    <p>Tags : ${res.tags.map(tag => "#" + tag).join(" ")}</p>
+                    <a href="${res.viewUrl}" target="_blank" class="btn">👁 Voir</a>
+                    <a href="${res.downloadUrl}" class="btn" download>⬇ Télécharger</a>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function applyFilters() {
+            const type = typeFilter.value;
+            const theme = themeFilter.value;
+            const tag = tagFilter.value;
+            const search = searchInput.value.toLowerCase();
+
+            const filtered = allResources.filter(r => {
+                const matchesType = !type || r.type.toLowerCase() === type;
+                const matchesTheme = !theme || r.theme.toLowerCase() === theme;
+                const matchesTag = !tag || r.tags.includes(tag);
+                const matchesSearch = r.title.toLowerCase().includes(search) || r.subtitle.toLowerCase().includes(search);
+                return matchesType && matchesTheme && matchesTag && matchesSearch;
+            });
+
+            renderResources(filtered);
+        }
+
+        [typeFilter, themeFilter, tagFilter, searchInput].forEach(el => {
+            el.addEventListener("input", applyFilters);
+        });
+
+        // ✅ Appel local vers le serveur simulé en Node.js
+        fetch("/serveur/api/ressources.json")
+            .then(res => res.json())
+            .then(data => {
+                allResources = data;
+                renderResources(allResources);
+            })
+            .catch(err => console.error("Erreur de chargement des ressources :", err));
+    });
+</script>
 
 
 </body>

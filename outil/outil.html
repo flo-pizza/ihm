@@ -149,7 +149,7 @@
             document.body.classList.add("dark");
             document.getElementById("themeToggle").checked = true;
         }
-        const serverURL = window.location.origin;
+        //const serverURL = window.location.origin;
 
         let tools = [];
 
@@ -164,7 +164,7 @@
                 link.target = "_blank";
 
                 const img = document.createElement("img");
-                img.src = `${serverURL}/imagettes/${tool.img}`;
+                img.src = `/serveur/imagettes/${tool.img}`;
                 img.alt = tool.name;
 
                 link.appendChild(img);
@@ -182,11 +182,12 @@
 
 
 
-        fetch(`${serverURL}/api/tools`)
+// Chargement local du JSON
+        fetch("/serveur/api/tools.json")
             .then(res => res.json())
             .then(data => {
                 tools = data;
-                document.querySelector(".notice").style.display = "none"; // ← cacher le message une fois que c'est prêt
+                document.querySelector(".notice").style.display = "none"; // Masquer la notice une fois les outils chargés
                 renderTools(modeSelect.value);
 
                 modeSelect.addEventListener("change", () => {
@@ -194,6 +195,7 @@
                 });
             })
             .catch(err => console.error("Erreur JSON :", err));
+
 
 
     });
