@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821418e3-af20-41ad-9697-3c1ff7fffe94" name="Changes" comment="v8">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/assets.html" afterDir="false" />
-    </list>
+    <list default="true" id="821418e3-af20-41ad-9697-3c1ff7fffe94" name="Changes" comment="v9 + resultats affichés" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +104,7 @@
       <workItem from="1745702563906" duration="679000" />
       <workItem from="1746097135913" duration="2000" />
       <workItem from="1746097255879" duration="5514000" />
-      <workItem from="1746302511210" duration="1990000" />
+      <workItem from="1746302511210" duration="2437000" />
     </task>
     <task id="LOCAL-00001" summary="v1 site ihm">
       <option name="closed" value="true" />
@@ -229,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746303771840</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="v9 + resultats affichés">
+      <option name="closed" value="true" />
+      <created>1746305291666</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746305291666</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +248,7 @@
     <MESSAGE value="v6" />
     <MESSAGE value="v7" />
     <MESSAGE value="v8" />
-    <option name="LAST_COMMIT_MESSAGE" value="v8" />
+    <MESSAGE value="v9 + resultats affichés" />
+    <option name="LAST_COMMIT_MESSAGE" value="v9 + resultats affichés" />
   </component>
 </project>
