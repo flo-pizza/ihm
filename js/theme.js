@@ -54,33 +54,47 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function setBubbleIcon(isEnabled) {
+        const testEmoji = "🫧";
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        ctx.font = "16px Arial";
+        const widthEmoji = ctx.measureText(testEmoji).width;
+        const widthFallback = ctx.measureText("⬜").width;
+
+        // Si trop proche, alors pas supporté
+        const bubbleSymbol = (Math.abs(widthEmoji - widthFallback) < 1) ? "bulles" : "🫧";
+        bubbleToggle.textContent = isEnabled ? bubbleSymbol : "⚫";
+    }
+
     // Gérer l'état des bulles
     function toggleBubbles() {
         const isEnabled = localStorage.getItem('bubbles') !== 'disabled';
         if (isEnabled) {
             clearInterval(bubbleInterval);
             bubbleContainer.classList.add('bubbles-disabled');
-            bubbleToggle.textContent = '⚫';
+            setBubbleIcon(false);
             localStorage.setItem('bubbles', 'disabled');
-            // Remove existing bubbles
             bubbleContainer.innerHTML = '';
         } else {
             bubbleContainer.classList.remove('bubbles-disabled');
             bubbleInterval = setInterval(createBubble, 2000);
-            bubbleToggle.textContent = '🫧';
+            setBubbleIcon(true);
             localStorage.setItem('bubbles', 'enabled');
         }
     }
 
-    // Initialiser l'état des bulles
+
+// Initialiser l'état des bulles
     if (bubbleContainer && bubbleToggle) {
         if (localStorage.getItem('bubbles') === 'disabled') {
             bubbleContainer.classList.add('bubbles-disabled');
-            bubbleToggle.textContent = '⚫';
+            setBubbleIcon(false);
         } else {
             bubbleInterval = setInterval(createBubble, 2000);
-            bubbleToggle.textContent = '🫧';
+            setBubbleIcon(true);
         }
         bubbleToggle.addEventListener('click', toggleBubbles);
     }
+
 });
