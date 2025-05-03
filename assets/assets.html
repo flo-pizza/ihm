@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Assets & Modèles - Site IHM</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -339,6 +340,15 @@
         .asset-card:hover .tooltip {
             visibility: visible;
         }
+
+        .filters button:last-of-type {
+            background-color: #f44336;
+        }
+
+        .filters button:last-of-type:hover {
+            background-color: #d32f2f;
+        }
+
     </style>
 </head>
 <body>
@@ -419,7 +429,11 @@
             </label>
         </div>
         <button onclick="filterAssets()">Appliquer</button>
+        <button onclick="resetFilters()">Réinitialiser</button>
+        <p id="result-count" style="padding-left: 1rem; font-weight: bold;">0 résultat</p>
     </aside>
+
+
 
     <!-- Grille d'assets -->
     <section id="assets-container" class="page-grille"></section>
@@ -588,9 +602,15 @@
         if (storedComments) asset.comments = JSON.parse(storedComments);
     });
 
+
+
+
     // Afficher les assets
     function displayAssets(assetsToShow) {
         const container = document.getElementById("assets-container");
+        document.getElementById("result-count").textContent =
+            `${assetsToShow.length} résultat${assetsToShow.length > 1 ? 's' : ''}`;
+
         container.innerHTML = assetsToShow.map(asset => `
                 <div class="asset-card">
                     <span class="tooltip">${asset.description}</span>
@@ -664,6 +684,18 @@
 
     // Initialiser l'affichage
     filterAssets();
+
+    function resetFilters() {
+        document.getElementById("filter-type").value = "";
+        document.getElementById("filter-format").value = "";
+        document.getElementById("filter-theme").value = "";
+        document.getElementById("filter-compatibility").value = "";
+        document.getElementById("filter-complexity").value = "";
+        document.getElementById("sort-by").value = "name";
+
+        filterAssets(); // relance l'affichage
+    }
+
 </script>
 </body>
 </html>
