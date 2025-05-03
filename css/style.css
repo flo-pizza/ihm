@@ -442,3 +442,229 @@ select {
     font-family: var(--font-active, 'Inter', sans-serif);
 }
 
+
+/* Variables pour le thème clair */
+:root {
+    --fond: #f8f8f8;
+    --texte: #222;
+    --bloc: white;
+    --lien: #000;
+    --accent: #00bcd4;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --danger: #f44336;
+    --info: #2196f3;
+    --highlight: #e0f7fa;
+    --surface: #f1f1f1;
+}
+
+/* Variables pour le thème sombre */
+body.dark {
+    --fond: #121212;
+    --texte: #e0e0e0;
+    --bloc: #1e1e1e;
+    --lien: #00bcd4;
+    --accent: #00bcd4;
+    --success: #66bb6a;
+    --warning: #ffa726;
+    --danger: #ef5350;
+    --info: #42a5f5;
+    --highlight: #263238;
+    --surface: #2a2a2a;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--fond);
+    color: var(--texte);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: var(--font-active, 'Inter', sans-serif), serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Bubble container for background animation */
+.bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bubble-container.bubbles-disabled {
+    display: none; /* Hide container when bubbles are disabled */
+}
+
+.bubble {
+    position: absolute;
+    bottom: -200px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: randomFloat 10s ease-in-out forwards;
+    opacity: 0;
+    filter: blur(10px);
+}
+
+@keyframes randomFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.4;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(calc(var(--random-x) * 1vw), -100vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.page-grille {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .page-grille {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .page-grille {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bloc {
+    background-color: var(--bloc);
+    color: var(--texte);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bloc:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .bloc:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    font-size: 1.2em;
+    color: var(--texte);
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 0.9em;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--lien);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.switch {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+.bubble-toggle {
+    position: absolute;
+    top: 50px; /* Below theme toggle */
+    right: 15px;
+    background-color: var(--accent);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    font-size: 0.85em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.bubble-toggle:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+}
+

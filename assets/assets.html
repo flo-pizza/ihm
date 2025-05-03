@@ -5,6 +5,7 @@
     <title>Assets & Modèles - Site IHM</title>
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Code&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --fond: #f8f8f8;
@@ -41,6 +42,45 @@
             color: var(--texte);
             transition: background-color 0.3s ease, color 0.3s ease;
             font-family: var(--font-active, 'Inter', sans-serif), serif;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Bubble container for background animation */
+        .bubble-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            animation: randomFloat 5s ease-in-out forwards;
+            opacity: 0;
+            filter: blur(8px); /* Blurry effect */
+        }
+
+        @keyframes randomFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.5; /* Slightly lower opacity for blur */
+            }
+            80% {
+                opacity: 0.5;
+            }
+
         }
 
         header {
@@ -49,6 +89,7 @@
             padding: 15px;
             text-align: center;
             position: relative;
+            z-index: 1;
         }
 
         header h1 {
@@ -62,29 +103,30 @@
             margin: 0 auto;
             padding: 20px;
             gap: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .page-grille {
             flex: 1;
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Minimum 3 colonnes */
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             padding-left: 1rem;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .page-grille {
-                grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur écrans moyens */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 480px) {
             .page-grille {
-                grid-template-columns: 1fr; /* 1 colonne sur petits écrans */
+                grid-template-columns: 1fr;
             }
             main {
-                flex-direction: column; /* Empiler filtres et grille */
+                flex-direction: column;
             }
             .filters {
                 width: 100%;
@@ -348,10 +390,10 @@
         .filters button:last-of-type:hover {
             background-color: #d32f2f;
         }
-
     </style>
 </head>
 <body>
+<div class="bubble-container"></div>
 <header>
     <a href="../index.html" class="home-button">🏠 Accueil</a>
     <h1>Bibliothèque d’Assets</h1>
@@ -361,7 +403,6 @@
         <span class="slider"></span>
     </label>
 </header>
-
 <main>
     <!-- Barre de filtrage à facettes -->
     <aside class="filters">
@@ -432,44 +473,10 @@
         <button onclick="resetFilters()">Réinitialiser</button>
         <p id="result-count" style="padding-left: 1rem; font-weight: bold;">0 résultat</p>
     </aside>
-
-
-
     <!-- Grille d'assets -->
     <section id="assets-container" class="page-grille"></section>
 </main>
-
 <script>
-    // Theme toggle and font persistence
-    console.log("Script chargé !");
-    const themeToggle = document.getElementById('themeToggle');
-
-    // Appliquer le thème sauvegardé
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark');
-        themeToggle.checked = true;
-    }
-
-    // Réagir au clic sur le switch
-    themeToggle.addEventListener('change', () => {
-        if (themeToggle.checked) {
-            document.body.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.body.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-        }
-    });
-
-    // Appliquer la police choisie
-    document.addEventListener("DOMContentLoaded", () => {
-        const savedFont = localStorage.getItem("fontFamily");
-        if (savedFont) {
-            document.body.style.fontFamily = `'${savedFont}', sans-serif`;
-            document.documentElement.style.setProperty('--font-active', `'${savedFont}', sans-serif`);
-        }
-    });
-
     // Liste des assets
     const assets = [
         {
@@ -602,15 +609,11 @@
         if (storedComments) asset.comments = JSON.parse(storedComments);
     });
 
-
-
-
     // Afficher les assets
     function displayAssets(assetsToShow) {
         const container = document.getElementById("assets-container");
         document.getElementById("result-count").textContent =
             `${assetsToShow.length} résultat${assetsToShow.length > 1 ? 's' : ''}`;
-
         container.innerHTML = assetsToShow.map(asset => `
                 <div class="asset-card">
                     <span class="tooltip">${asset.description}</span>
@@ -682,9 +685,7 @@
         }
     }
 
-    // Initialiser l'affichage
-    filterAssets();
-
+    // Réinitialiser les filtres
     function resetFilters() {
         document.getElementById("filter-type").value = "";
         document.getElementById("filter-format").value = "";
@@ -692,10 +693,12 @@
         document.getElementById("filter-compatibility").value = "";
         document.getElementById("filter-complexity").value = "";
         document.getElementById("sort-by").value = "name";
-
-        filterAssets(); // relance l'affichage
+        filterAssets();
     }
 
+    // Initialiser l'affichage
+    filterAssets();
 </script>
+<script src="../js/theme.js"></script>
 </body>
 </html>
